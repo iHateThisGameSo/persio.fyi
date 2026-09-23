@@ -1,0 +1,117 @@
+---
+import SwissLayout from '../../layouts/SwissLayout.astro';
+---
+
+<SwissLayout title="Curriculum Vitae & Track Record — persio.fyi" description="Software engineering leadership, AI architecture, and systems track record.">
+  
+  <div class="space-y-10 max-w-4xl">
+    
+    <!-- CV Header -->
+    <div class="space-y-4">
+      <div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-4 border-b border-black pb-4">
+        <div>
+          <h1 class="text-4xl md:text-5xl font-black tracking-tighter uppercase">
+            Persio
+          </h1>
+          <p class="font-mono-swiss text-xs text-neutral-600 uppercase mt-1">
+            Staff Systems Architect &middot; Autonomous AI Engineering
+          </p>
+        </div>
+
+        <div class="flex gap-2">
+          <button onclick="window.print()" class="font-mono-swiss text-xs font-bold uppercase px-3 py-1.5 border border-black hover:bg-black hover:text-white transition">
+            [ Print / PDF ]
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Career Milestones -->
+    <section class="space-y-8">
+      <div>
+        <h2 class="text-2xl font-black tracking-tight uppercase mb-2">
+          01 // Leadership & Professional Experience
+        </h2>
+        <div class="rule-heavy mb-6"></div>
+      </div>
+
+      <!-- Experience 1 -->
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-6 pb-8 border-b border-black/20">
+        <div class="md:col-span-3 font-mono-swiss text-xs font-bold text-neutral-600 uppercase">
+          2024 — PRESENT
+        </div>
+        <div class="md:col-span-9 space-y-3">
+          <div class="flex flex-wrap items-baseline justify-between gap-2">
+            <h3 class="text-lg font-black uppercase">Engineering Leadership & AI Architecture</h3>
+            <span class="font-mono-swiss text-xs font-semibold text-neutral-600">Aprumo</span>
+          </div>
+          <p class="text-sm text-neutral-800 leading-relaxed">
+            Leading the technical design and implementation of autonomous agent platforms, model routing pipelines, and local credential governance. Architected multi-agent coordination frameworks enforcing aggregate token ceilings and deterministic verification gates.
+          </p>
+          <div class="font-mono-swiss text-[11px] text-neutral-600 flex flex-wrap gap-2">
+            <span>[Autonomous Agent Topologies]</span>
+            <span>[Rust / Python]</span>
+            <span>[Deterministic Verification]</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Experience 2 -->
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-6 pb-8 border-b border-black/20">
+        <div class="md:col-span-3 font-mono-swiss text-xs font-bold text-neutral-600 uppercase">
+          2020 — 2024
+        </div>
+        <div class="md:col-span-9 space-y-3">
+          <div class="flex flex-wrap items-baseline justify-between gap-2">
+            <h3 class="text-lg font-black uppercase">Principal Software Engineer & Strategic Advisory</h3>
+            <span class="font-mono-swiss text-xs font-semibold text-neutral-600">Independent Consultancy</span>
+          </div>
+          <p class="text-sm text-neutral-800 leading-relaxed">
+            Provided technical advisory for high-scale digital products, distributed backend redesigns, and cloud modernization. Focused on operational simplicity, database query optimization, and eliminating non-deterministic distributed failures.
+          </p>
+          <div class="font-mono-swiss text-[11px] text-neutral-600 flex flex-wrap gap-2">
+            <span>[High-Concurrency Backends]</span>
+            <span>[Go / Distributed Systems]</span>
+            <span>[Cloud Architecture]</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Technical Competencies -->
+    <section class="space-y-6 pt-4">
+      <div>
+        <h2 class="text-2xl font-black tracking-tight uppercase mb-2">
+          02 // Core Competencies & Domains
+        </h2>
+        <div class="rule-heavy mb-6"></div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-xs font-mono-swiss">
+        <div class="border border-black p-4 space-y-2">
+          <h3 class="font-black text-sm uppercase text-black">Systems & Architecture</h3>
+          <ul class="space-y-1 text-neutral-800">
+            <li>&bull; Autonomous Multi-Agent Topologies</li>
+            <li>&bull; High-Throughput Distributed Backends</li>
+            <li>&bull; Minimal Context & Token Ceilings</li>
+            <li>&bull; Zero-Trust Secret Isolation (tmpfs)</li>
+            <li>&bull; Linux Kernel Tracing (eBPF)</li>
+          </ul>
+        </div>
+
+        <div class="border border-black p-4 space-y-2">
+          <h3 class="font-black text-sm uppercase text-black">Languages & Technologies</h3>
+          <ul class="space-y-1 text-neutral-800">
+            <li>&bull; Rust, TypeScript, Python, Go, C</li>
+            <li>&bull; WebAssembly, Canvas 2D, Astro</li>
+            <li>&bull; Linux, Bash, Git Architecture</li>
+            <li>&bull; Cloudflare Edge, Cloudflare Pages</li>
+            <li>&bull; PostgreSQL, Redis, Event Sinks</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+</SwissLayout>

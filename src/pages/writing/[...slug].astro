@@ -1,0 +1,115 @@
+---
+import SwissLayout from '../../layouts/SwissLayout.astro';
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('writing');
+  return posts.map((post) => ({
+    params: { slug: post.slug },
+    props: post,
+  }));
+}
+
+const post = Astro.props;
+const { Content } = await post.render();
+---
+
+<SwissLayout title={`${post.data.title} — persio.fyi`} description={post.data.description}>
+  
+  <div class="space-y-10 max-w-4xl">
+    
+    <!-- Article Header -->
+    <div class="space-y-4">
+      <div class="flex items-center gap-4 font-mono-swiss text-xs text-neutral-600 uppercase border-b border-black pb-2">
+        <a href="/writing" class="hover:underline font-bold">← Back to Writing Index</a>
+        <span>&middot;</span>
+        <span>{post.data.date}</span>
+        <span>&middot;</span>
+        <span>{post.data.category}</span>
+        <span>&middot;</span>
+        <span>{post.data.readingTime}</span>
+      </div>
+
+      <h1 class="text-3xl md:text-5xl font-black tracking-tight leading-tight uppercase">
+        {post.data.title}
+      </h1>
+
+      <p class="text-base md:text-lg text-neutral-700 leading-relaxed font-medium">
+        {post.data.description}
+      </p>
+
+      <div class="rule-heavy"></div>
+    </div>
+
+    <!-- Prose Content (Strict Swiss Typography) -->
+    <div class="prose max-w-none space-y-6 text-sm md:text-base leading-relaxed text-neutral-900 font-sans">
+      <Content />
+    </div>
+
+    <!-- Article Footer / Navigation -->
+    <div class="pt-8 border-t-2 border-black flex justify-between font-mono-swiss text-xs uppercase font-bold">
+      <a href="/writing" class="hover:underline">← All Essays</a>
+      <a href="#top" class="hover:underline">Return to Top ↑</a>
+    </div>
+
+  </div>
+
+</SwissLayout>
+
+<style is:global>
+  .prose h2 {
+    font-size: 1.5rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: -0.025em;
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+    border-bottom: 1px solid #000000;
+    padding-bottom: 0.25rem;
+  }
+  .prose h3 {
+    font-size: 1.25rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+  .prose p {
+    margin-bottom: 1.25rem;
+  }
+  .prose strong {
+    font-weight: 800;
+    color: #000000;
+  }
+  .prose pre {
+    background-color: #f7f7f7 !important;
+    border: 1px solid #000000;
+    padding: 1rem;
+    overflow-x: auto;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+  .prose code {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.85em;
+    background-color: #f0f0f0;
+    padding: 0.15em 0.35em;
+    border: 1px solid #000000;
+  }
+  .prose pre code {
+    background: transparent;
+    border: none;
+    padding: 0;
+  }
+  .prose ol {
+    list-style-type: decimal;
+    padding-left: 1.5rem;
+    margin-bottom: 1.25rem;
+  }
+  .prose ol li {
+    margin-bottom: 0.5rem;
+  }
+</style>

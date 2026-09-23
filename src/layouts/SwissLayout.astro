@@ -1,0 +1,105 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = "Persio's Technical Journal & System Lab",
+  description = "Computational experiments, systems architecture, autonomous AI agents, and engineering record."
+} = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://persio.fyi');
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='50' fill='%23002fa7'/></svg>" />
+  <link rel="canonical" href={canonicalURL} />
+
+  <title>{title}</title>
+  <meta name="title" content={title} />
+  <meta name="description" content={description} />
+
+  <!-- Open Graph / Social -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content={canonicalURL} />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:url" content={canonicalURL} />
+  <meta property="twitter:title" content={title} />
+  <meta property="twitter:description" content={description} />
+</head>
+<body class="p-6 md:p-12 max-w-7xl mx-auto selection:bg-black selection:text-white">
+
+  <!-- ========================================================================= -->
+  <!-- HEADER: STRICT SWISS MASTHEAD -->
+  <!-- ========================================================================= -->
+  <header class="flex flex-col md:flex-row md:items-baseline justify-between pb-8 border-b border-black gap-4">
+    <div>
+      <a href="/" class="group">
+        <h1 class="text-xl md:text-2xl font-black tracking-tight uppercase group-hover:underline">
+          Persio's Technical Journal & System Lab
+        </h1>
+      </a>
+      <div class="font-mono-swiss text-xs tracking-tight text-neutral-600 mt-0.5">
+        persio.fyi &middot; Systems & AI Research &middot; Cloudflare DNS Active
+      </div>
+    </div>
+
+    <!-- Navigation with single purposeful Klein Blue focal indicator -->
+    <nav class="flex items-center gap-6 font-mono-swiss text-xs font-bold uppercase tracking-wider">
+      <a href="/lab" class="hover:underline">LAB</a>
+      <a href="/writing" class="hover:underline">WRITING</a>
+      <a href="/cv" class="hover:underline">ARCHIVE / CV</a>
+      <a href="#about" class="hover:underline">ABOUT</a>
+      <!-- The sole purposeful accent: active state indicator -->
+      <span class="klein-dot" title="persio.fyi active"></span>
+    </nav>
+  </header>
+
+  <!-- ========================================================================= -->
+  <!-- MAIN CONTENT SLOT -->
+  <!-- ========================================================================= -->
+  <main class="pt-10 space-y-16">
+    <slot />
+  </main>
+
+  <!-- ========================================================================= -->
+  <!-- FOOTER: SPECIFICATIONS & COLOPHON (NO LOCATION) -->
+  <!-- ========================================================================= -->
+  <footer id="about" class="pt-8 border-t-2 border-black space-y-4 font-mono-swiss text-[11px] text-neutral-600 mt-16">
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+      <div>
+        <span class="text-black font-bold uppercase block mb-1">DOMAIN</span>
+        persio.fyi<br>
+        Authority: Cloudflare Pages
+      </div>
+      <div>
+        <span class="text-black font-bold uppercase block mb-1">NAMESERVERS</span>
+        journey.ns.cloudflare.com<br>
+        wesley.ns.cloudflare.com
+      </div>
+      <div>
+        <span class="text-black font-bold uppercase block mb-1">ARCHITECTURE</span>
+        Swiss International Typographic Style<br>
+        Pure Black on White &middot; Zero Bloat
+      </div>
+      <div class="md:text-right">
+        <span class="text-black font-bold uppercase block mb-1">CONTACT / SOURCE</span>
+        <a href="https://github.com/iHateThisGameSo/persio.fyi" class="hover:underline" target="_blank" rel="noopener">GitHub: iHateThisGameSo/persio.fyi</a><br>
+        <a href="#top" class="hover:underline">Back to top ↑</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

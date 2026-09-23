@@ -1,0 +1,43 @@
+---
+title: "Minimal Delegation Patterns in Autonomous Agent Topologies"
+date: "2026-09-23"
+description: "Why compute availability does not justify subagent sprawl, and how to preserve aggregate budgets and signal purity."
+category: "Autonomous Systems"
+readingTime: "9 min"
+draft: false
+---
+
+The initial instinct when engineering multi-agent systems is to delegate aggressively. Developers spawn an agent to explore, an agent to plan, an agent to write code, and three cascading agents to conduct reviews. The empirical result in production is almost invariably identical: context degradation, explosive token consumption, and catastrophic latency.
+
+In mission-critical autonomous environments, **direct execution by the primary coordinator must remain the default**. Subagent dispatch is justified exclusively when a task can be partitioned into an independent, bounded, and deterministically verifiable unit of work.
+
+```typescript
+// Minimal Context Dispatch Contract
+interface AgentDispatchSpec {
+  role: string;
+  scope: string[];       // Strict file or resource bounds
+  maxRounds: number;     // Hard upper ceiling
+  aggregateBudget: {
+    maxTokens: number;
+    timeoutSeconds: number;
+  };
+  expectedEvidence: string; // Verifiable proof criteria
+}
+```
+
+## The Noise Amplification Theorem
+
+When we pass an entire conversational history to a secondary agent, we do not provide helpful context; we inject accumulated premises, speculative hypotheses, and subtle cognitive bias. 
+
+The principle of **minimal context** dictates that each delegated node should receive only the exact slice of data and files required to formulate a verdict. Furthermore, the coordinator must consume only the child's structured evidence and findings—never its raw chain-of-thought or entire transcript.
+
+## Verification Over Consensus
+
+Voting mechanisms across multiple LLMs are frequently mistaken for verification. Running three identical models to achieve consensus does not eliminate shared systematic failure modes; it merely triples compute costs. 
+
+Rigorous systems substitute model consensus with deterministic gates:
+1. **Static Analysis & Compilers:** A change either compiles without warnings or it fails.
+2. **Deterministic Tests:** Test suites executed in sandboxed containers provide immutable ground truth.
+3. **Evidence Preflights:** Before any merge or state change, the cryptographic hash of the reviewed payload must be verified.
+
+Architecture is not the addition of components, but the disciplined elimination of everything that does not contribute to verifiable correctness.

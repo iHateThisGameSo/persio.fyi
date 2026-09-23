@@ -1,0 +1,182 @@
+---
+interface Props {
+  heightClass?: string;
+}
+
+const { heightClass = "h-64" } = Astro.props;
+---
+
+<div class="border border-black p-2 bg-white">
+  <div class="flex justify-between font-mono-swiss text-[10px] text-neutral-500 pb-1 border-b border-black mb-1">
+    <span id="canvas-matrix-stat">MATRIX: 8 NODES</span>
+    <span>INTERACTIVE TOPOLOGY</span>
+    <span>60 FPS</span>
+  </div>
+  <div class={`w-full ${heightClass} bg-white relative overflow-hidden`}>
+    <canvas id="swiss-canvas" class="w-full h-full block cursor-crosshair"></canvas>
+  </div>
+  <div class="flex justify-between items-center font-mono-swiss text-[10px] pt-1.5 border-t border-black">
+    <div class="flex gap-2">
+      <button id="btn-add-node" class="hover:bg-black hover:text-white px-1.5 py-0.5 border border-black uppercase">
+        [ + Add Node ]
+      </button>
+      <button id="btn-reset-nodes" class="hover:bg-black hover:text-white px-1.5 py-0.5 border border-black uppercase">
+        [ Reset Mesh ]
+      </button>
+    </div>
+    <span class="text-neutral-500 hidden sm:inline">Drag nodes to test topology matrix</span>
+  </div>
+</div>
+
+<script>
+  function setupCanvas() {
+    const canvas = document.getElementById('swiss-canvas') as HTMLCanvasElement | null;
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    if (!ctx) return;
+
+    let nodes = [
+      { x: 50, y: 50, vx: 0.4, vy: 0.3, label: '01.COORDINATOR', isHub: true },
+      { x: 180, y: 120, vx: -0.3, vy: 0.4, label: '02.SUB_A' },
+      { x: 300, y: 70, vx: 0.2, vy: -0.3, label: '03.SUB_B' },
+      { x: 140, y: 190, vx: -0.4, vy: -0.2, label: '04.FILTER' },
+      { x: 260, y: 170, vx: 0.3, vy: 0.3, label: '05.EBPF' },
+      { x: 390, y: 140, vx: -0.2, vy: 0.4, label: '06.WASM' },
+      { x: 440, y: 80, vx: 0.3, vy: -0.3, label: '07.ROUTER' },
+      { x: 480, y: 180, vx: -0.4, vy: -0.2, label: '08.STORE' }
+    ];
+
+    function resizeCanvas() {
+      if (!canvas || !canvas.parentElement) return;
+      canvas.width = canvas.parentElement.clientWidth;
+      canvas.height = canvas.parentElement.clientHeight;
+    }
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+
+    const statLabel = document.getElementById('canvas-matrix-stat');
+    const addBtn = document.getElementById('btn-add-node');
+    const resetBtn = document.getElementById('btn-reset-nodes');
+
+    if (addBtn) {
+      addBtn.onclick = () => {
+        nodes.push({
+          x: Math.random() * (canvas.width - 80) + 40,
+          y: Math.random() * (canvas.height - 80) + 40,
+          vx: (Math.random() - 0.5) * 0.8,
+          vy: (Math.random() - 0.5) * 0.8,
+          label: `0${nodes.length + 1}.WORKER`
+        });
+        if (statLabel) statLabel.textContent = `MATRIX: ${nodes.length} NODES`;
+      };
+    }
+
+    if (resetBtn) {
+      resetBtn.onclick = () => {
+        nodes = nodes.slice(0, 4);
+        if (statLabel) statLabel.textContent = `MATRIX: ${nodes.length} NODES`;
+      };
+    }
+
+    let isDragging = false;
+    let selectedNode: any = null;
+
+    canvas.addEventListener('mousedown', (e) => {
+      const rect = canvas.getBoundingClientRect();
+      const mouseX = e.clientX - rect.left;
+      const mouseY = e.clientY - rect.top;
+
+      nodes.forEach(n => {
+        const dist = Math.hypot(n.x - mouseX, n.y - mouseY);
+        if (dist < 15) {
+          isDragging = true;
+          selectedNode = n;
+        }
+      });
+    });
+
+    canvas.addEventListener('mousemove', (e) => {
+      if (isDragging && selectedNode) {
+        const rect = canvas.getBoundingClientRect();
+        selectedNode.x = e.clientX - rect.left;
+        selectedNode.y = e.clientY - rect.top;
+      }
+    });
+
+    window.addEventListener('mouseup', () => {
+      isDragging = false;
+      selectedNode = null;
+    });
+
+    function draw() {
+      if (!canvas || !ctx) return;
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      // 1. Subtle Monochrome Grid Lines (1px)
+      ctx.strokeStyle = '#f0f0f0';
+      ctx.lineWidth = 1;
+      const step = 32;
+      for (let x = 0; x < canvas.width; x += step) {
+        ctx.beginPath();
+        ctx.moveTo(x, 0);
+        ctx.lineTo(x, canvas.height);
+        ctx.stroke();
+      }
+      for (let y = 0; y < canvas.height; y += step) {
+        ctx.beginPath();
+        ctx.moveTo(0, y);
+        ctx.lineTo(canvas.width, y);
+        ctx.stroke();
+      }
+
+      // 2. Strict Black Hairline Connections
+      for (let i = 0; i < nodes.length; i++) {
+        for (let j = i + 1; j < nodes.length; j++) {
+          const dist = Math.hypot(nodes[i].x - nodes[j].x, nodes[i].y - nodes[j].y);
+          if (dist < 180) {
+            ctx.strokeStyle = dist < 90 ? '#000000' : 'rgba(0, 0, 0, 0.25)';
+            ctx.lineWidth = 1;
+            ctx.beginPath();
+            ctx.moveTo(nodes[i].x, nodes[i].y);
+            ctx.lineTo(nodes[j].x, nodes[j].y);
+            ctx.stroke();
+          }
+        }
+      }
+
+      // 3. Draw Nodes (Pure Swiss Geometry)
+      nodes.forEach(n => {
+        if (!isDragging || selectedNode !== n) {
+          n.x += n.vx;
+          n.y += n.vy;
+
+          if (n.x < 20 || n.x > canvas.width - 20) n.vx *= -1;
+          if (n.y < 20 || n.y > canvas.height - 20) n.vy *= -1;
+        }
+
+        if (n.isHub) {
+          // The single purposeful Klein Blue coordinator node
+          ctx.fillStyle = '#002fa7';
+          ctx.beginPath();
+          ctx.arc(n.x, n.y, 4, 0, Math.PI * 2);
+          ctx.fill();
+        } else {
+          // Sharp monochrome black square node
+          ctx.fillStyle = '#000000';
+          ctx.fillRect(n.x - 3, n.y - 3, 6, 6);
+        }
+
+        // Crisp Typography Label
+        ctx.font = '600 10px "JetBrains Mono", monospace';
+        ctx.fillStyle = n.isHub ? '#002fa7' : '#000000';
+        ctx.fillText(n.label, n.x + 8, n.y + 3);
+      });
+
+      requestAnimationFrame(draw);
+    }
+    requestAnimationFrame(draw);
+  }
+
+  setupCanvas();
+  document.addEventListener('astro:after-swap', setupCanvas);
+</script>

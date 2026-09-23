@@ -1,0 +1,57 @@
+---
+import SwissLayout from '../../layouts/SwissLayout.astro';
+import { getCollection } from 'astro:content';
+
+const posts = await getCollection('writing', ({ data }) => !data.draft);
+const sortedPosts = posts.sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime());
+---
+
+<SwissLayout title="Writing & Technical Essays — persio.fyi" description="In-depth technical essays on systems, agents, and engineering.">
+  
+  <div class="space-y-8">
+    <div>
+      <div class="flex items-baseline justify-between mb-2">
+        <h1 class="text-4xl md:text-5xl font-black tracking-tighter uppercase">
+          02 // WRITING & ESSAYS
+        </h1>
+        <span class="font-mono-swiss text-xs text-neutral-500 uppercase">
+          [ {sortedPosts.length} ESSAYS PUBLISHED ]
+        </span>
+      </div>
+      <div class="rule-heavy mb-6"></div>
+      <p class="text-sm max-w-2xl text-neutral-700 leading-relaxed">
+        Long-form architectural writing on software engineering principles, distributed systems, and verifiable autonomous agent topologies.
+      </p>
+    </div>
+
+    <!-- Chronological Essay List -->
+    <div class="space-y-8 pt-4">
+      {sortedPosts.map((post, idx) => (
+        <article class="grid grid-cols-1 md:grid-cols-12 gap-6 pb-8 border-b border-black">
+          <div class="md:col-span-3 font-mono-swiss text-xs text-neutral-600 uppercase">
+            <span class="text-black font-bold">#{String(sortedPosts.length - idx).padStart(3, '0')}</span> &middot; {post.data.date}
+            <div class="mt-1 text-neutral-500">{post.data.category}</div>
+            <div class="text-neutral-500">{post.data.readingTime} read</div>
+          </div>
+          
+          <div class="md:col-span-9 space-y-2">
+            <a href={`/writing/${post.slug}`} class="block group">
+              <h2 class="text-xl md:text-2xl font-black uppercase tracking-tight group-hover:underline">
+                {post.data.title}
+              </h2>
+            </a>
+            <p class="text-sm text-neutral-800 leading-relaxed">
+              {post.data.description}
+            </p>
+            <div class="pt-2">
+              <a href={`/writing/${post.slug}`} class="font-mono-swiss text-xs font-bold uppercase underline">
+                Read Full Text →
+              </a>
+            </div>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+
+</SwissLayout>
