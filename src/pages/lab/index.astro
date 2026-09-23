@@ -1,75 +1,22 @@
 ---
 import SwissLayout from '../../layouts/SwissLayout.astro';
-import AgentTopologyCanvas from '../../components/AgentTopologyCanvas.astro';
 ---
 
-<SwissLayout title="Computational Systems Lab — persio.fyi" description="Interactive simulations, WebAssembly engines, and autonomous agent topologies.">
-  
+<SwissLayout title="Lab — persio.fyi" description="Experiments will be published here once they can be reproduced.">
   <div class="space-y-8">
     <div>
       <div class="flex items-baseline justify-between mb-2">
         <h1 class="text-4xl md:text-5xl font-black tracking-tighter uppercase">
-          01 // COMPUTATIONAL SYSTEMS LAB
+          01 // LAB
         </h1>
         <span class="font-mono-swiss text-xs text-neutral-500 uppercase">
-          [ 2 ACTIVE MATRIX RUNTIMES ]
+          [ 0 EXPERIMENTS ]
         </span>
       </div>
       <div class="rule-heavy mb-6"></div>
       <p class="text-sm max-w-2xl text-neutral-700 leading-relaxed">
-        Live interactive canvas simulations and system experiments. Testing distributed coordination, minimal context propagation, and realtime telemetry.
+        Empty for now. Nothing goes here until it runs, is measured and can be reproduced by someone else.
       </p>
     </div>
-
-    <!-- Main Active Simulation Frame -->
-    <div class="space-y-4">
-      <div class="flex items-baseline justify-between">
-        <h2 class="text-xl font-black uppercase tracking-tight">
-          EXP_01.01 — Autonomous Agent Topology & Latency Matrix
-        </h2>
-        <span class="font-mono-swiss text-xs font-semibold text-neutral-500">
-          WASM / CANVAS 2D / 60 FPS
-        </span>
-      </div>
-
-      <p class="text-xs text-neutral-700 max-w-3xl leading-relaxed">
-        Simulates the mechanical communication bus between a coordinator node (highlighted in Klein Blue) and ephemeral subagents. Notice that direct point-to-point connections form strictly based on latency and task proximity, preventing broadcast storm overhead.
-      </p>
-
-      <AgentTopologyCanvas heightClass="h-96" />
-    </div>
-
-    <!-- Secondary Upcoming Experiments -->
-    <div class="pt-8 border-t border-black space-y-6">
-      <h3 class="text-lg font-black uppercase tracking-tight">
-        Future Experiment Pipeline
-      </h3>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-xs">
-        <div class="border border-black p-4 space-y-2">
-          <div class="flex justify-between font-mono-swiss text-neutral-500">
-            <span>EXP_01.02</span>
-            <span>IN PROGRESS</span>
-          </div>
-          <h4 class="font-bold text-sm uppercase">eBPF Socket Latency Analyzer</h4>
-          <p class="text-neutral-700 leading-relaxed">
-            Direct inspection of Linux kernel TCP queue lengths and packet dispatch jitter without user-space context switches.
-          </p>
-        </div>
-
-        <div class="border border-black p-4 space-y-2">
-          <div class="flex justify-between font-mono-swiss text-neutral-500">
-            <span>EXP_01.03</span>
-            <span>PLANNED</span>
-          </div>
-          <h4 class="font-bold text-sm uppercase">Typed Decision Engine Sandbox</h4>
-          <p class="text-neutral-700 leading-relaxed">
-            Benchmarking structured decision matrices vs unstructured LLM text outputs for high-volume data classification.
-          </p>
-        </div>
-      </div>
-    </div>
-
   </div>
-
 </SwissLayout>
