@@ -18,3 +18,11 @@ Personal website, technical journal, and computational systems laboratory hosted
 - `pnpm dev`: Start local development server
 - `pnpm build`: Generate static production build in `dist/`
 - `pnpm preview`: Preview production build locally
+
+## Host flow (onboarding 2026-09-23, hub)
+- **GitHub identity:** `iHateThisGameSo`. Every network `gh`/`git` call goes through `/home/ppucci/bin/gh-as iHateThisGameSo gh ...`; never bare `gh`. The repo is PUBLIC: no surname, address, phone, client name or secret in content, metadata, commits or screenshots.
+- **Branches and PRs:** material work lives in its own branch/worktree (`~/worktrees/persio.fyi-<topic>`), never directly on `main`. Open the PR with `pr-main --persio abrir iHateThisGameSo/persio.fyi ...` and integrate with `pr-main --persio integrar ...` after the Codex bot review on the head SHA. No squash, rebase, force-push or auto-merge.
+- **Deploy:** Cloudflare Pages builds from `main`. Merging to `main` therefore publishes to `persio.fyi`; it is an external effect and needs Persio's explicit go for that PR. No Cloudflare token or `wrangler` credential ever enters the repo or a prompt.
+- **Verification before a PR:** `pnpm install --frozen-lockfile` and `pnpm build` must pass; `dist/` is never committed. `scripts/finalization_guard.py` is the local pre-push guard.
+- **Language:** site content and code in English (repo rule above); notes, handoffs and messages to Persio in pt-BR without anglicisms.
+- **Ledgers:** ongoing work is tracked with `handoff`/`wip`; questions for Persio with `decisao`. Before writing here from a shared session: `~/.claude/bin/trava-escopo pegar /home/ppucci/personal/persio.fyi --motivo "..."`.
