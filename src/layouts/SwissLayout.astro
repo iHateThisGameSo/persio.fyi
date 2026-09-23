@@ -51,7 +51,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://persio.f
         </h1>
       </a>
       <div class="font-mono-swiss text-xs tracking-tight text-neutral-600 mt-0.5">
-        persio.fyi &middot; Systems & AI Research &middot; Cloudflare DNS Active
+        persio.fyi &middot; Systems & AI Research &middot; Autonomous Topologies
       </div>
     </div>
 
@@ -60,7 +60,6 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://persio.f
       <a href="/lab" class="hover:underline">LAB</a>
       <a href="/writing" class="hover:underline">WRITING</a>
       <a href="/cv" class="hover:underline">ARCHIVE / CV</a>
-      <a href="#about" class="hover:underline">ABOUT</a>
       <!-- The sole purposeful accent: active state indicator -->
       <span class="klein-dot" title="persio.fyi active"></span>
     </nav>
@@ -74,30 +73,15 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://persio.f
   </main>
 
   <!-- ========================================================================= -->
-  <!-- FOOTER: SPECIFICATIONS & COLOPHON (NO LOCATION) -->
+  <!-- FOOTER: MINIMAL SWISS COLOPHON -->
   <!-- ========================================================================= -->
-  <footer id="about" class="pt-8 border-t-2 border-black space-y-4 font-mono-swiss text-[11px] text-neutral-600 mt-16">
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
-      <div>
-        <span class="text-black font-bold uppercase block mb-1">DOMAIN</span>
-        persio.fyi<br>
-        Authority: Cloudflare Pages
-      </div>
-      <div>
-        <span class="text-black font-bold uppercase block mb-1">NAMESERVERS</span>
-        journey.ns.cloudflare.com<br>
-        wesley.ns.cloudflare.com
-      </div>
-      <div>
-        <span class="text-black font-bold uppercase block mb-1">ARCHITECTURE</span>
-        Swiss International Typographic Style<br>
-        Pure Black on White &middot; Zero Bloat
-      </div>
-      <div class="md:text-right">
-        <span class="text-black font-bold uppercase block mb-1">CONTACT / SOURCE</span>
-        <a href="https://github.com/iHateThisGameSo/persio.fyi" class="hover:underline" target="_blank" rel="noopener">GitHub: iHateThisGameSo/persio.fyi</a><br>
-        <a href="#top" class="hover:underline">Back to top ↑</a>
-      </div>
+  <footer class="pt-8 border-t-2 border-black flex flex-col sm:flex-row justify-between items-baseline gap-4 font-mono-swiss text-[11px] text-neutral-600 mt-16">
+    <div>
+      <span class="text-black font-bold uppercase">Persio</span> &middot; Technical Journal & System Lab
+    </div>
+    <div class="flex items-center gap-6">
+      <a href="https://github.com/iHateThisGameSo/persio.fyi" class="hover:text-black uppercase" target="_blank" rel="noopener">GitHub: iHateThisGameSo/persio.fyi</a>
+      <a href="#top" class="hover:text-black uppercase">Top ↑</a>
     </div>
   </footer>
 

@@ -2,19 +2,19 @@
 import SwissLayout from '../../layouts/SwissLayout.astro';
 ---
 
-<SwissLayout title="Curriculum Vitae & Track Record — persio.fyi" description="Software engineering leadership, AI architecture, and systems track record.">
+<SwissLayout title="Curriculum Vitae & Track Record — persio.fyi" description="Staff Infrastructure & Systems Architect, Technical Leader, active CCIE #22112, and AI-First Systems Engineer.">
   
-  <div class="space-y-10 max-w-4xl">
+  <div class="space-y-12 max-w-4xl">
     
     <!-- CV Header -->
     <div class="space-y-4">
       <div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-4 border-b border-black pb-4">
         <div>
-          <h1 class="text-4xl md:text-5xl font-black tracking-tighter uppercase">
+          <h1 class="text-4xl md:text-6xl font-black tracking-tighter uppercase">
             Persio
           </h1>
-          <p class="font-mono-swiss text-xs text-neutral-600 uppercase mt-1">
-            Staff Systems Architect &middot; Autonomous AI Engineering
+          <p class="font-mono-swiss text-xs text-neutral-700 uppercase mt-1 font-semibold">
+            Staff Infrastructure & Systems Architect &middot; Technical Leader &middot; CCIE #22112 &middot; AI-First Systems Engineer
           </p>
         </div>
 
@@ -26,87 +26,271 @@ import SwissLayout from '../../layouts/SwissLayout.astro';
       </div>
     </div>
 
-    <!-- Career Milestones -->
-    <section class="space-y-8">
+    <!-- 00 // EXECUTIVE SUMMARY -->
+    <section class="space-y-4">
       <div>
         <h2 class="text-2xl font-black tracking-tight uppercase mb-2">
-          01 // Leadership & Professional Experience
+          00 // Executive Summary
         </h2>
-        <div class="rule-heavy mb-6"></div>
+        <div class="rule-heavy mb-4"></div>
       </div>
-
-      <!-- Experience 1 -->
-      <div class="grid grid-cols-1 md:grid-cols-12 gap-6 pb-8 border-b border-black/20">
-        <div class="md:col-span-3 font-mono-swiss text-xs font-bold text-neutral-600 uppercase">
-          2024 — PRESENT
-        </div>
-        <div class="md:col-span-9 space-y-3">
-          <div class="flex flex-wrap items-baseline justify-between gap-2">
-            <h3 class="text-lg font-black uppercase">Engineering Leadership & AI Architecture</h3>
-            <span class="font-mono-swiss text-xs font-semibold text-neutral-600">Aprumo</span>
-          </div>
-          <p class="text-sm text-neutral-800 leading-relaxed">
-            Leading the technical design and implementation of autonomous agent platforms, model routing pipelines, and local credential governance. Architected multi-agent coordination frameworks enforcing aggregate token ceilings and deterministic verification gates.
-          </p>
-          <div class="font-mono-swiss text-[11px] text-neutral-600 flex flex-wrap gap-2">
-            <span>[Autonomous Agent Topologies]</span>
-            <span>[Rust / Python]</span>
-            <span>[Deterministic Verification]</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Experience 2 -->
-      <div class="grid grid-cols-1 md:grid-cols-12 gap-6 pb-8 border-b border-black/20">
-        <div class="md:col-span-3 font-mono-swiss text-xs font-bold text-neutral-600 uppercase">
-          2020 — 2024
-        </div>
-        <div class="md:col-span-9 space-y-3">
-          <div class="flex flex-wrap items-baseline justify-between gap-2">
-            <h3 class="text-lg font-black uppercase">Principal Software Engineer & Strategic Advisory</h3>
-            <span class="font-mono-swiss text-xs font-semibold text-neutral-600">Independent Consultancy</span>
-          </div>
-          <p class="text-sm text-neutral-800 leading-relaxed">
-            Provided technical advisory for high-scale digital products, distributed backend redesigns, and cloud modernization. Focused on operational simplicity, database query optimization, and eliminating non-deterministic distributed failures.
-          </p>
-          <div class="font-mono-swiss text-[11px] text-neutral-600 flex flex-wrap gap-2">
-            <span>[High-Concurrency Backends]</span>
-            <span>[Go / Distributed Systems]</span>
-            <span>[Cloud Architecture]</span>
-          </div>
-        </div>
-      </div>
+      <p class="text-sm md:text-base text-neutral-800 leading-relaxed font-sans">
+        Accomplished Senior Network Engineer, Technical Leader, and Customer Success Architect with over 25 years of experience across enterprise infrastructure, mission-critical systems engineering, and customer success, specializing in high-availability networking, security, and SASE architectures. Holder of active CCIE Enterprise Infrastructure certification (#22112). Proven track record managing multi-tier complex network infrastructures, driving customer adoption, leading cross-functional technical escalations, and ensuring optimal operational integrity for top-tier enterprise accounts. Combines deep systems fundamentals with AI-first engineering methodologies to build resilient architectures backed by disciplined human validation.
+      </p>
     </section>
 
-    <!-- Technical Competencies -->
-    <section class="space-y-6 pt-4">
+    <!-- 01 // CORE COMPETENCIES & DOMAINS -->
+    <section class="space-y-6">
       <div>
         <h2 class="text-2xl font-black tracking-tight uppercase mb-2">
-          02 // Core Competencies & Domains
+          01 // Core Competencies & Domains
         </h2>
         <div class="rule-heavy mb-6"></div>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-xs font-mono-swiss">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-xs font-mono-swiss">
+
         <div class="border border-black p-4 space-y-2">
-          <h3 class="font-black text-sm uppercase text-black">Systems & Architecture</h3>
-          <ul class="space-y-1 text-neutral-800">
-            <li>&bull; Autonomous Multi-Agent Topologies</li>
-            <li>&bull; High-Throughput Distributed Backends</li>
-            <li>&bull; Minimal Context & Token Ceilings</li>
-            <li>&bull; Zero-Trust Secret Isolation (tmpfs)</li>
-            <li>&bull; Linux Kernel Tracing (eBPF)</li>
+          <h3 class="font-black text-sm uppercase text-black">Routing & Data Center Fabric</h3>
+          <ul class="space-y-1.5 text-neutral-800 leading-relaxed">
+            <li>&bull; <strong>Provider Routing:</strong> IPv4/IPv6, MP-BGP, OSPF, IS-IS, MPLS, L2VPNs, L3VPNs, Multicast, BFD, GRE, AAA.</li>
+            <li>&bull; <strong>Fabric & Switching:</strong> MST, RSTP, LAG, vPC, FabricPath, Data Center Infrastructure (Cisco Nexus, Cisco ACI), Greenfield and Brownfield Deployments.</li>
           </ul>
         </div>
 
         <div class="border border-black p-4 space-y-2">
-          <h3 class="font-black text-sm uppercase text-black">Languages & Technologies</h3>
+          <h3 class="font-black text-sm uppercase text-black">SASE & Cloud Security</h3>
+          <ul class="space-y-1.5 text-neutral-800 leading-relaxed">
+            <li>&bull; <strong>Security Architecture:</strong> Prisma Access SASE, Palo Alto Networks NGFWs, Panorama, Strata Cloud Manager.</li>
+            <li>&bull; <strong>Zero Trust:</strong> ZTNA principles, CASB, Enterprise DLP, SaaS Inline, IPsec VPN, ACLs, Network Security Optimization.</li>
+          </ul>
+        </div>
+
+        <div class="border border-black p-4 space-y-2">
+          <h3 class="font-black text-sm uppercase text-black">High-Touch Support & Governance</h3>
+          <ul class="space-y-1.5 text-neutral-800 leading-relaxed">
+            <li>&bull; Major Incident Management, Root Cause Analysis (RCA), Reason For Outage (RFO) reporting.</li>
+            <li>&bull; Day 0/Day 1/Day 2 lifecycle support, trend analysis, technical cross-functional liaison, customer adoption frameworks.</li>
+          </ul>
+        </div>
+
+        <div class="border border-black p-4 space-y-2">
+          <h3 class="font-black text-sm uppercase text-black">AI & Systems Automation</h3>
+          <ul class="space-y-1.5 text-neutral-800 leading-relaxed">
+            <li>&bull; Shell/BASH operational automation, Python & Ansible runtime exposure.</li>
+            <li>&bull; EVPN/VXLAN laboratory environments, autonomous agent topologies, deterministic verification gates.</li>
+          </ul>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 02 // PROFESSIONAL EXPERIENCE -->
+    <section class="space-y-8">
+      <div>
+        <h2 class="text-2xl font-black tracking-tight uppercase mb-2">
+          02 // Professional Experience
+        </h2>
+        <div class="rule-heavy mb-6"></div>
+      </div>
+
+      <!-- Experience Items -->
+      <div class="space-y-8">
+
+        <!-- Palo Alto Networks -->
+        <article class="grid grid-cols-1 md:grid-cols-12 gap-6 pb-8 border-b border-black/20">
+          <div class="md:col-span-3 font-mono-swiss text-xs font-bold text-neutral-600 uppercase">
+            NOV 2024 — PRESENT
+          </div>
+          <div class="md:col-span-9 space-y-2">
+            <div class="flex flex-wrap items-baseline justify-between gap-2">
+              <h3 class="text-lg font-black uppercase">Customer Success Engineer (Contractor)</h3>
+              <span class="font-mono-swiss text-xs font-semibold text-neutral-600">Palo Alto Networks</span>
+            </div>
+            <p class="text-sm text-neutral-800 leading-relaxed">
+              Dedicated Customer Success Engineer for Prisma Access SASE enterprise customers, driving end-to-end product adoption, architectural health, and knowledge transfer to maximize solution value. Proactively partners with enterprise accounts to guide deployment, configuration, and operational utilization of SASE capabilities, including Prisma Access, Prisma Access Browser, Explicit Proxy, SaaS Inline, CASB, and Enterprise DLP.
+            </p>
+          </div>
+        </article>
+
+        <!-- Cisco Systems - Tech Leader -->
+        <article class="grid grid-cols-1 md:grid-cols-12 gap-6 pb-8 border-b border-black/20">
+          <div class="md:col-span-3 font-mono-swiss text-xs font-bold text-neutral-600 uppercase">
+            NOV 2021 — FEB 2024
+          </div>
+          <div class="md:col-span-9 space-y-2">
+            <div class="flex flex-wrap items-baseline justify-between gap-2">
+              <h3 class="text-lg font-black uppercase">High Touch Engineer Technical Leader</h3>
+              <span class="font-mono-swiss text-xs font-semibold text-neutral-600">Cisco Systems</span>
+            </div>
+            <p class="text-sm text-neutral-800 leading-relaxed">
+              Served as Senior Technical Leader providing high-touch support and dedicated technical ownership for tier-1 enterprise accounts with zero-downtime tolerance, including major financial institutions (Banco Itaú, Bradesco, B3) and telecommunications providers (Vivo, TIM). Acted as primary technical authority and escalation liaison with TAC and HTTS for rapid mitigation and resolution of high-severity and critical network incidents.
+            </p>
+          </div>
+        </article>
+
+        <!-- Cisco Systems - High Touch Engineer -->
+        <article class="grid grid-cols-1 md:grid-cols-12 gap-6 pb-8 border-b border-black/20">
+          <div class="md:col-span-3 font-mono-swiss text-xs font-bold text-neutral-600 uppercase">
+            APR 2013 — DEC 2021
+          </div>
+          <div class="md:col-span-9 space-y-2">
+            <div class="flex flex-wrap items-baseline justify-between gap-2">
+              <h3 class="text-lg font-black uppercase">High Touch Engineer</h3>
+              <span class="font-mono-swiss text-xs font-semibold text-neutral-600">Cisco Systems</span>
+            </div>
+            <p class="text-sm text-neutral-800 leading-relaxed">
+              Delivered proactive and reactive high-touch technical engineering for major financial institutions and telecommunication providers. Managed end-to-end escalations for business-critical routing, switching, and transport incidents in coordination with TAC and HTTS. Spearheaded operational readiness reviews, software maintenance strategies, and high-risk change implementations.
+            </p>
+          </div>
+        </article>
+
+        <!-- Cisco Systems - NCE Contractor -->
+        <article class="grid grid-cols-1 md:grid-cols-12 gap-6 pb-8 border-b border-black/20">
+          <div class="md:col-span-3 font-mono-swiss text-xs font-bold text-neutral-600 uppercase">
+            MAR 2012 — APR 2013
+          </div>
+          <div class="md:col-span-9 space-y-2">
+            <div class="flex flex-wrap items-baseline justify-between gap-2">
+              <h3 class="text-lg font-black uppercase">Network Consulting Engineer (Contractor)</h3>
+              <span class="font-mono-swiss text-xs font-semibold text-neutral-600">Cisco Systems</span>
+            </div>
+            <p class="text-sm text-neutral-800 leading-relaxed">
+              Conducted exhaustive enterprise infrastructure assessments and provided architectural consulting, serving as a core member of the Network Assessment Report project team for Banco Itaú. Formulated and delivered bespoke optimization roadmaps for network performance, routing stability, and security.
+            </p>
+          </div>
+        </article>
+
+        <!-- Universal Telecom -->
+        <article class="grid grid-cols-1 md:grid-cols-12 gap-6 pb-8 border-b border-black/20">
+          <div class="md:col-span-3 font-mono-swiss text-xs font-bold text-neutral-600 uppercase">
+            MAY 2011 — JAN 2012
+          </div>
+          <div class="md:col-span-9 space-y-2">
+            <div class="flex flex-wrap items-baseline justify-between gap-2">
+              <h3 class="text-lg font-black uppercase">Manager, Network Engineering</h3>
+              <span class="font-mono-swiss text-xs font-semibold text-neutral-600">Universal Telecom</span>
+            </div>
+            <p class="text-sm text-neutral-800 leading-relaxed">
+              Directed maintenance, engineering, and tier-3 support for IP Backbone and Access Network infrastructures. Managed mission-critical Financial Markets Data networks, collaborating directly with major financial exchanges (including B3 and NYSE) to deliver ultra-reliable, low-latency connectivity for trading and settlement platforms.
+            </p>
+          </div>
+        </article>
+
+        <!-- Neovia Telecom -->
+        <article class="grid grid-cols-1 md:grid-cols-12 gap-6 pb-8 border-b border-black/20">
+          <div class="md:col-span-3 font-mono-swiss text-xs font-bold text-neutral-600 uppercase">
+            DEC 2009 — MAY 2011
+          </div>
+          <div class="md:col-span-9 space-y-2">
+            <div class="flex flex-wrap items-baseline justify-between gap-2">
+              <h3 class="text-lg font-black uppercase">Manager, Network Engineering, IT & Infrastructure</h3>
+              <span class="font-mono-swiss text-xs font-semibold text-neutral-600">Neovia Telecom</span>
+            </div>
+            <p class="text-sm text-neutral-800 leading-relaxed">
+              Led multidisciplinary engineering teams in architecting and deploying next-generation access networks. Managed capital expenditure and operational infrastructure budgets, negotiated vendor partnerships, and streamlined operational investments.
+            </p>
+          </div>
+        </article>
+
+        <!-- Verizon Business -->
+        <article class="grid grid-cols-1 md:grid-cols-12 gap-6 pb-8 border-b border-black/20">
+          <div class="md:col-span-3 font-mono-swiss text-xs font-bold text-neutral-600 uppercase">
+            NOV 2008 — DEC 2009
+          </div>
+          <div class="md:col-span-9 space-y-2">
+            <div class="flex flex-wrap items-baseline justify-between gap-2">
+              <h3 class="text-lg font-black uppercase">Senior Network Engineer, Managed Services Delivery</h3>
+              <span class="font-mono-swiss text-xs font-semibold text-neutral-600">Verizon Business</span>
+            </div>
+            <p class="text-sm text-neutral-800 leading-relaxed">
+              Engineered and implemented complex network integration solutions for managed services clients, building custom BASH automation scripts for reconnaissance, validation, and deployment pipelines. Ensured seamless onboarding and cutover of client infrastructure under rigorous SLAs.
+            </p>
+          </div>
+        </article>
+
+        <!-- Verizon Business - Operations Support -->
+        <article class="grid grid-cols-1 md:grid-cols-12 gap-6 pb-8 border-b border-black/20">
+          <div class="md:col-span-3 font-mono-swiss text-xs font-bold text-neutral-600 uppercase">
+            JUN 2006 — NOV 2008
+          </div>
+          <div class="md:col-span-9 space-y-2">
+            <div class="flex flex-wrap items-baseline justify-between gap-2">
+              <h3 class="text-lg font-black uppercase">Senior Engineer, Operations Support — L2 Team Lead</h3>
+              <span class="font-mono-swiss text-xs font-semibold text-neutral-600">Verizon Business</span>
+            </div>
+            <p class="text-sm text-neutral-800 leading-relaxed">
+              Led the Level 2 Network Operations Team responsible for outsourced network infrastructure for ABN Amro, supporting mission-critical WAN, MAN, LAN, and Extranet environments. Authored detailed Root Cause Analysis (RCA) and Reason For Outage (RFO) engineering reports.
+            </p>
+          </div>
+        </article>
+
+        <!-- Prior Foundational Experience -->
+        <article class="grid grid-cols-1 md:grid-cols-12 gap-6 pb-4">
+          <div class="md:col-span-3 font-mono-swiss text-xs font-bold text-neutral-600 uppercase">
+            1998 — 2006
+          </div>
+          <div class="md:col-span-9 space-y-2">
+            <h3 class="text-lg font-black uppercase">Foundational Engineering Roles</h3>
+            <ul class="text-xs font-mono-swiss text-neutral-800 space-y-1.5 leading-relaxed">
+              <li>&bull; <strong>Multirede Informática (2005—2006):</strong> Project Analyst & Cisco Professional Instructor.</li>
+              <li>&bull; <strong>Universo Online / UOL (2002—2005):</strong> Project Analyst, core transport & hosting infrastructure.</li>
+              <li>&bull; <strong>Telefônica Empresas (2001—2002):</strong> Network Specialist, customer access provisioning.</li>
+              <li>&bull; <strong>Impsat Telecomunicações (1999—2001):</strong> Network Administrator, telecom data operations.</li>
+              <li>&bull; <strong>Mandic Internet (1998—1999):</strong> Technical Support Analyst, commercial dialup & broadband expansion.</li>
+            </ul>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- 03 // CERTIFICATIONS & CREDENTIALS -->
+    <section class="space-y-6">
+      <div>
+        <h2 class="text-2xl font-black tracking-tight uppercase mb-2">
+          03 // Certifications & Credentials
+        </h2>
+        <div class="rule-heavy mb-6"></div>
+      </div>
+
+      <div class="border border-black p-4 space-y-3 font-mono-swiss text-xs">
+        <div>
+          <span class="text-black font-black uppercase block text-sm">
+            Cisco Certified Internetwork Expert (CCIE) — Enterprise Infrastructure #22112
+          </span>
+          <span class="text-emerald-700 font-bold">STATUS: ACTIVE</span>
+        </div>
+        <div class="text-neutral-600 pt-2 border-t border-black/15">
+          <strong>Prior / Retired Credentials:</strong> Cisco CCNA, Cisco CCSP, Cisco CCDP, Cisco CCIP, ITIL v2.
+        </div>
+      </div>
+    </section>
+
+    <!-- 04 // EDUCATION & LANGUAGES -->
+    <section class="space-y-6">
+      <div>
+        <h2 class="text-2xl font-black tracking-tight uppercase mb-2">
+          04 // Education & Languages
+        </h2>
+        <div class="rule-heavy mb-6"></div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-xs font-mono-swiss">
+        <div class="border border-black p-4 space-y-2">
+          <h3 class="font-black text-sm uppercase text-black">Higher Education</h3>
+          <div class="space-y-1 text-neutral-800">
+            <strong>Universidade Presbiteriana Mackenzie</strong>
+            <p>Bachelor of Business Administration (1999 — 2005)</p>
+          </div>
+        </div>
+
+        <div class="border border-black p-4 space-y-2">
+          <h3 class="font-black text-sm uppercase text-black">Language Proficiency</h3>
           <ul class="space-y-1 text-neutral-800">
-            <li>&bull; Rust, TypeScript, Python, Go, C</li>
-            <li>&bull; WebAssembly, Canvas 2D, Astro</li>
-            <li>&bull; Linux, Bash, Git Architecture</li>
-            <li>&bull; Cloudflare Edge, Cloudflare Pages</li>
-            <li>&bull; PostgreSQL, Redis, Event Sinks</li>
+            <li>&bull; <strong>English:</strong> Fluent (C1/C2 Professional Proficiency)</li>
+            <li>&bull; <strong>Portuguese:</strong> Native</li>
+            <li>&bull; <strong>Spanish:</strong> Intermediate Working Knowledge</li>
           </ul>
         </div>
       </div>
