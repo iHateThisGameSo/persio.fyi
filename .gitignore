@@ -22,3 +22,7 @@ pnpm-debug.log*
 *.sw?
 .idea/
 .vscode/
+
+# Python
+__pycache__/
+*.py[cod]
