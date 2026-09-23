@@ -11,6 +11,13 @@ const {
   description = "Computational experiments, systems architecture, autonomous AI agents, and engineering record."
 } = Astro.props;
 
+// Social links. An entry with an empty url is not rendered.
+const social = [
+  { label: 'GitHub', url: 'https://github.com/iHateThisGameSo' },
+  { label: 'X', url: 'https://x.com/PucciPersio' },
+  { label: 'LinkedIn', url: 'https://www.linkedin.com/in/ppucci/' },
+];
+
 const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://persio.fyi');
 ---
 
@@ -80,7 +87,9 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://persio.f
       <span class="text-black font-bold uppercase">Persio</span> &middot; Technical Journal & System Lab
     </div>
     <div class="flex items-center gap-6">
-      <a href="https://github.com/iHateThisGameSo/persio.fyi" class="hover:text-black uppercase" target="_blank" rel="noopener">GitHub: iHateThisGameSo/persio.fyi</a>
+      {social.filter((s) => s.url).map((s) => (
+        <a href={s.url} class="hover:text-black uppercase" target="_blank" rel="me noopener">{s.label}</a>
+      ))}
       <a href="#top" class="hover:text-black uppercase">Top ↑</a>
     </div>
   </footer>
