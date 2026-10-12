@@ -1,127 +1,132 @@
 ---
 import SwissLayout from '../../layouts/SwissLayout.astro';
+import TimelineNavigator from '../../components/TimelineNavigator.astro';
+import { career, certifications } from '../../data/career';
+import { formatDate } from '../../lib/writing.mjs';
+const active = certifications.filter(cert => cert.status === 'Active');
+const historical = certifications.filter(cert => cert.status === 'Expired');
 ---
 
-<SwissLayout title="Track Record — persio.fyi" description="Infrastructure and systems engineer. Twenty-five years of networks, incidents and automation; now building AI-first systems with deterministic verification.">
-
-  <div class="space-y-12 max-w-4xl">
-
-    <!-- Header -->
-    <div class="space-y-4">
-      <div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-4 border-b border-black pb-4">
-        <div>
-          <h1 class="text-4xl md:text-6xl font-black tracking-tighter uppercase">
-            Persio
-          </h1>
-          <p class="font-mono-swiss text-xs text-neutral-700 uppercase mt-1 font-semibold">
-            Infrastructure &amp; Systems Engineer &middot; AI-First Systems
-          </p>
+<SwissLayout title="Trajectory & CV — persio.fyi" description="Persio’s trajectory from an English exchange and Mandic’s internet era to network engineering, technical leadership, and independent work.">
+  <div class="space-y-14">
+    <header class="grid md:grid-cols-12 gap-6 md:gap-8">
+      <div class="md:col-span-3 font-mono-swiss text-xs uppercase text-neutral-600 tracking-widest">03 // Trajectory / CV</div>
+      <div class="md:col-span-9 space-y-6">
+        <div class="flex flex-wrap items-baseline justify-between gap-4">
+          <h1 class="text-5xl md:text-7xl font-black tracking-tighter leading-none uppercase">Persio</h1>
+          <button id="print-cv" type="button" class="print-control border-2 border-black px-3 py-2 font-mono-swiss text-[11px] uppercase font-bold hover:bg-black hover:text-white">Print / save PDF</button>
         </div>
+        <p class="text-lg md:text-xl leading-relaxed max-w-3xl">Networks, operations, and the judgment that comes from troubleshooting them. Today I bring that experience to independent software work and project controls.</p>
+        <p class="text-sm leading-relaxed text-neutral-700 max-w-2xl">I define the problem, direct AI agents through implementation, and assess the result. My background runs through internet access, backbone networks, managed services, technical leadership, and security.</p>
+        <nav aria-label="CV sections" class="cv-navigation flex flex-wrap gap-x-6 gap-y-3 font-mono-swiss text-xs uppercase font-bold">
+          <a href="#timeline" class="underline underline-offset-4">Timeline ↓</a>
+          <a href="#certifications" class="underline underline-offset-4">Certifications ↓</a>
+          <a href="/writing/" class="underline underline-offset-4">Journal →</a>
+        </nav>
       </div>
-      <p class="font-mono-swiss text-xs text-neutral-600 leading-relaxed">
-        This page is a sketch, not a résumé. It says what I work on and how; it does not list employers, clients or credential numbers. Ask if you need the formal document.
-      </p>
-    </div>
+    </header>
 
-    <!-- 00 // IN SHORT -->
-    <section class="space-y-4">
-      <div>
-        <h2 class="text-2xl font-black tracking-tight uppercase mb-2">
-          00 // In Short
-        </h2>
-        <div class="rule-heavy mb-4"></div>
+    <section id="timeline" class="space-y-8" aria-labelledby="timeline-title">
+      <div class="flex flex-wrap items-baseline justify-between gap-3 border-b-2 border-black pb-3">
+        <h2 id="timeline-title" class="text-3xl md:text-4xl font-black tracking-tighter uppercase">01 // Along the way</h2>
+        <span class="font-mono-swiss text-xs uppercase text-neutral-600">1995–present</span>
       </div>
-      <p class="text-sm md:text-base text-neutral-800 leading-relaxed font-sans">
-        Twenty-five years keeping large networks up: carrier backbones, financial-market connectivity, data-center fabrics and, lately, cloud-delivered security. Most of that time was spent as the engineer of last resort for accounts that cannot afford downtime. Today I apply the same discipline to systems built around language models: small deterministic gates, evidence before claims, and humans who ratify rather than retype.
-      </p>
+      <TimelineNavigator />
+      <ol class="cv-timeline">
+        {career.map(entry => (
+          <li id={entry.id} class="timeline-entry grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-8 pb-8 last:pb-0">
+            <div class="md:col-span-3 font-mono-swiss text-xs uppercase space-y-2 pt-1">
+              <p class="font-bold">{entry.period}</p>
+              <p class="text-neutral-600">{entry.kind}</p>
+            </div>
+            <div class="md:col-span-9 border-l-2 border-black pl-5 md:pl-8 pb-8 space-y-3">
+              <div class="flex items-center gap-5">
+                {entry.logo && <img src={entry.logo} alt="" width="64" height="64" loading="lazy" class="brand-logo shrink-0" />}
+                <div class="timeline-copy min-w-0 space-y-1">
+                  <p class="font-mono-swiss text-xs text-neutral-600">{entry.organization}</p>
+                  <h3 class="text-lg md:text-xl font-black uppercase tracking-tight leading-tight">{entry.title}</h3>
+                </div>
+              </div>
+              <p class="text-sm leading-relaxed text-neutral-800 max-w-2xl">{entry.description}</p>
+            </div>
+          </li>
+        ))}
+      </ol>
     </section>
 
-    <!-- 01 // DOMAINS -->
-    <section class="space-y-6">
-      <div>
-        <h2 class="text-2xl font-black tracking-tight uppercase mb-2">
-          01 // Domains
-        </h2>
-        <div class="rule-heavy mb-6"></div>
+    <section id="certifications" class="space-y-8" aria-labelledby="certifications-title">
+      <h2 id="certifications-title" class="text-3xl md:text-4xl font-black tracking-tighter uppercase border-b-2 border-black pb-3">02 // Certifications</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {active.map(cert => (
+          <article class="active-certification border-2 border-black p-5 space-y-4">
+            <div class="certification-heading flex gap-5 items-start">
+              {cert.logo && <img src={cert.logo} alt="" width="80" height="80" loading="lazy" class="certification-logo shrink-0" />}
+              <div class="min-w-0 space-y-2">
+                <p class="font-mono-swiss text-xs font-bold uppercase">Active</p>
+                <h3 class="text-lg font-black uppercase tracking-tight leading-tight">{cert.name}</h3>
+                {cert.abbreviation.startsWith('CCIE') && <p class="font-mono-swiss text-sm font-bold">#22112</p>}
+                {cert.logoEdition && <p class="text-[11px] leading-relaxed text-neutral-600">{cert.logoEdition}</p>}
+              </div>
+            </div>
+            <dl class="text-xs font-mono-swiss space-y-2">
+              <div class="flex flex-wrap justify-between gap-2"><dt>Record start</dt><dd><time datetime={cert.start}>{formatDate(cert.start)}</time></dd></div>
+              <div class="flex flex-wrap justify-between gap-2"><dt>Valid through</dt><dd><time datetime={cert.expires}>{formatDate(cert.expires)}</time></dd></div>
+            </dl>
+          </article>
+        ))}
       </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-xs font-mono-swiss">
-        <div class="border border-black p-4 space-y-2">
-          <h3 class="font-black text-sm uppercase text-black">Routing &amp; Fabric</h3>
-          <p class="text-neutral-800 leading-relaxed">Provider-grade IP routing, MPLS services, multicast, data-center switching fabrics. Greenfield and brownfield.</p>
+      <article class="border-t-2 border-b-2 border-black py-5 grid md:grid-cols-12 gap-4 md:gap-8">
+        <div class="md:col-span-3 font-mono-swiss text-xs uppercase space-y-1"><p class="font-bold">19 Sep 2028</p><p class="text-neutral-600">Looking ahead</p></div>
+        <div class="md:col-span-9 space-y-2">
+          <h3 class="text-xl font-black uppercase tracking-tight">CCIE Lifetime Emeritus · twenty-year milestone</h3>
+          <p class="text-sm leading-relaxed max-w-2xl">Projected eligibility from my CCIE start date of 19 September 2008, provided active or Emeritus status is maintained for twenty consecutive years. This is a future eligibility milestone; my current status remains active.</p>
+          <a href="https://www.cisco.com/site/us/en/learn/training-certifications/certifications/expert/emeritus.html" class="font-mono-swiss text-xs underline underline-offset-4">Cisco’s Lifetime Emeritus policy ↗</a>
         </div>
-        <div class="border border-black p-4 space-y-2">
-          <h3 class="font-black text-sm uppercase text-black">Security Edge</h3>
-          <p class="text-neutral-800 leading-relaxed">Cloud-delivered security, zero-trust access, next-generation firewalls and the operational reality of running them at scale.</p>
+      </article>
+      <div class="space-y-5">
+        <h3 class="text-xl font-black uppercase tracking-tight">Historical credentials</h3>
+        <p class="text-sm leading-relaxed text-neutral-700">The following Cisco credentials are expired and belong to retired certification tracks. Dates follow the certification record.</p>
+        <div class="divide-y divide-black">
+          {historical.map(cert => (
+            <article class="certification-row py-4 grid grid-cols-1 md:grid-cols-12 gap-3 md:gap-8">
+              <div class="md:col-span-7 flex items-center gap-4">
+                {cert.logo && <img src={cert.logo} alt="" width="64" height="64" loading="lazy" class="certification-logo shrink-0" />}
+                <div class="min-w-0 space-y-1"><h4 class="font-bold text-sm leading-relaxed">{cert.name}</h4><p class="font-mono-swiss text-[11px] text-neutral-600">{cert.abbreviation} · Expired / retired track</p>{cert.logoEdition && <p class="text-[11px] text-neutral-600">{cert.logoEdition}</p>}</div>
+              </div>
+              <dl class="md:col-span-5 font-mono-swiss text-[11px] space-y-1">
+                <div class="flex justify-between gap-2"><dt>Active from</dt><dd><time datetime={cert.start}>{formatDate(cert.start)}</time></dd></div>
+                <div class="flex justify-between gap-2"><dt>Expired</dt><dd><time datetime={cert.expires}>{formatDate(cert.expires)}</time></dd></div>
+              </dl>
+            </article>
+          ))}
         </div>
-        <div class="border border-black p-4 space-y-2">
-          <h3 class="font-black text-sm uppercase text-black">Incidents &amp; Escalation</h3>
-          <p class="text-neutral-800 leading-relaxed">Major-incident ownership, root-cause analysis, change risk, and the writing that makes an outage teachable.</p>
+        <div class="grid md:grid-cols-2 gap-6 border-t border-black pt-5">
+          <article class="flex gap-4 items-start">
+            <img src="/certifications/ccdp-2009.jpg" alt="" width="80" height="80" loading="lazy" class="certification-logo shrink-0" />
+            <div class="min-w-0 space-y-1"><h4 class="font-bold text-sm">CCDP</h4><p class="text-xs leading-relaxed text-neutral-700">Historical credential recorded in my CV. Issue and expiry dates are not recorded here.</p><p class="text-[11px] text-neutral-600">Historic Design mark · 2009</p></div>
+          </article>
+          <article class="flex gap-4 items-start">
+            <img src="/certifications/itil-foundation-pin-2007.jpg" alt="" width="80" height="80" loading="lazy" class="certification-logo shrink-0" />
+            <div class="min-w-0 space-y-1"><h4 class="font-bold text-sm">ITIL v2 Foundations</h4><p class="text-xs leading-relaxed text-neutral-700">Historical credential recorded in my CV. Issue and expiry dates are not recorded here.</p><p class="text-[11px] text-neutral-600">Foundation pin pictured in 2007</p></div>
+          </article>
         </div>
-        <div class="border border-black p-4 space-y-2">
-          <h3 class="font-black text-sm uppercase text-black">AI-First Systems</h3>
-          <p class="text-neutral-800 leading-relaxed">Multi-agent coordination, typed decision gates, local models where they suffice, shell and Python automation with verifiable outputs.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- 02 // ERAS -->
-    <section class="space-y-8">
-      <div>
-        <h2 class="text-2xl font-black tracking-tight uppercase mb-2">
-          02 // Eras
-        </h2>
-        <div class="rule-heavy mb-6"></div>
-      </div>
-
-      <div class="space-y-8">
-        <article class="grid grid-cols-1 md:grid-cols-12 gap-6 pb-8 border-b border-black/20">
-          <div class="md:col-span-3 font-mono-swiss text-xs font-bold text-neutral-600 uppercase">2024 — Present</div>
-          <div class="md:col-span-9 space-y-2">
-            <h3 class="text-lg font-black uppercase">Cloud security, customer side</h3>
-            <p class="text-sm text-neutral-800 leading-relaxed">Helping enterprises adopt and operate a SASE platform: architecture health, migration sequencing, knowledge transfer. In parallel, building my own AI-first tooling and this laboratory.</p>
+        <details class="text-xs leading-relaxed text-neutral-600">
+          <summary class="cursor-pointer underline underline-offset-4">About the historical marks</summary>
+          <div class="pt-3 space-y-2 max-w-3xl">
+            <p>The Cisco marks use the <a href="https://cyber-fi.net/index.php/2009/01/14/die-neuen-cisco-certification-logos/" class="underline">2009 certification artwork</a>. The artwork year is separate from the credential’s start date. Specialist and Lifecycle credentials without a verified individual mark remain in text.</p>
+            <p>ITIL pin photo: <a href="https://commons.wikimedia.org/wiki/File:ITIL_Foundation_Certificate_pin.jpg" class="underline">Tijmen Stam (IIVQ), cropped by Saibo</a>, <a href="https://creativecommons.org/licenses/by-sa/3.0/" class="underline">CC BY-SA 3.0</a>. Source file unchanged; displayed in monochrome. This is an archival illustration of the Foundation pin.</p>
           </div>
-        </article>
-
-        <article class="grid grid-cols-1 md:grid-cols-12 gap-6 pb-8 border-b border-black/20">
-          <div class="md:col-span-3 font-mono-swiss text-xs font-bold text-neutral-600 uppercase">2012 — 2024</div>
-          <div class="md:col-span-9 space-y-2">
-            <h3 class="text-lg font-black uppercase">High-touch engineering at a network vendor</h3>
-            <p class="text-sm text-neutral-800 leading-relaxed">A decade as dedicated engineer, then technical lead, for a handful of zero-downtime accounts in banking, exchanges and telecom. Escalations, readiness reviews, software strategy, high-risk changes.</p>
-          </div>
-        </article>
-
-        <article class="grid grid-cols-1 md:grid-cols-12 gap-6 pb-8 border-b border-black/20">
-          <div class="md:col-span-3 font-mono-swiss text-xs font-bold text-neutral-600 uppercase">2006 — 2012</div>
-          <div class="md:col-span-9 space-y-2">
-            <h3 class="text-lg font-black uppercase">Operations and engineering management</h3>
-            <p class="text-sm text-neutral-800 leading-relaxed">Led operations and engineering teams at service providers: IP backbones, access networks, financial-market data connectivity, budgets and vendors.</p>
-          </div>
-        </article>
-
-        <article class="grid grid-cols-1 md:grid-cols-12 gap-6 pb-4">
-          <div class="md:col-span-3 font-mono-swiss text-xs font-bold text-neutral-600 uppercase">1998 — 2006</div>
-          <div class="md:col-span-9 space-y-2">
-            <h3 class="text-lg font-black uppercase">Foundations</h3>
-            <p class="text-sm text-neutral-800 leading-relaxed">Support, administration, provisioning and project roles across ISPs, hosting and carriers, plus a stretch teaching networking.</p>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <!-- 03 // CREDENTIALS -->
-    <section class="space-y-6">
-      <div>
-        <h2 class="text-2xl font-black tracking-tight uppercase mb-2">
-          03 // Credentials
-        </h2>
-        <div class="rule-heavy mb-6"></div>
-      </div>
-      <div class="border border-black p-4 space-y-2 font-mono-swiss text-xs">
-        <p class="text-neutral-800 leading-relaxed">Expert-level vendor certification in enterprise infrastructure, active. Business degree. Native Portuguese, fluent English, working Spanish.</p>
+        </details>
       </div>
     </section>
 
+    <section class="grid md:grid-cols-12 gap-6 md:gap-8 border-t-2 border-black pt-6">
+      <h2 class="md:col-span-3 font-mono-swiss text-xs font-bold uppercase">03 // Languages</h2>
+      <div class="md:col-span-9 text-sm leading-relaxed">Portuguese: native · English: fluent · Spanish: intermediate</div>
+    </section>
   </div>
-
 </SwissLayout>
+
+<script>
+  document.getElementById('print-cv')?.addEventListener('click', () => window.print());
+</script>

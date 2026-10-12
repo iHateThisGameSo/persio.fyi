@@ -1,0 +1,26 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { formatDate, readingMinutes } from '../lib/writing.mjs';
+
+interface Props { posts: CollectionEntry<'writing'>[]; }
+const { posts } = Astro.props;
+const entries = await Promise.all(posts.map(async post => ({ post, ...(post.data.kind === 'note' ? await post.render() : {}) })));
+---
+
+<div class="divide-y-2 divide-black">
+  {entries.map(({ post, Content }) => (
+    <article id={post.slug} class="py-7 first:pt-0 space-y-4">
+      <div class="flex flex-wrap gap-x-4 gap-y-1 font-mono-swiss text-[11px] uppercase text-neutral-600">
+        <span class="text-black font-bold">{post.data.kind}</span>
+        <time datetime={post.data.date}>{formatDate(post.data.date)}</time>
+        <span>{post.data.category}</span>
+        {post.data.kind === 'essay' && <span>{readingMinutes(post.body)} min read</span>}
+      </div>
+      <h3 class="text-xl md:text-2xl font-black uppercase tracking-tight leading-tight">
+        <a href={`/writing/${post.slug}/`} class="hover:underline">{post.data.title}</a>
+      </h3>
+      {Content ? <div class="prose text-sm md:text-base"><Content /></div> : <p class="text-sm md:text-base leading-relaxed text-neutral-800">{post.data.description}</p>}
+      <a href={`/writing/${post.slug}/`} class="font-mono-swiss text-[11px] uppercase underline underline-offset-4">{post.data.kind === 'note' ? 'Permalink' : 'Read essay'} →</a>
+    </article>
+  ))}
+</div>

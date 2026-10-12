@@ -1,22 +1,28 @@
 ---
 import SwissLayout from '../../layouts/SwissLayout.astro';
+const areas = [
+  { title: 'Working with AI agents', text: 'I direct agents through requirements, implementation, and verification. The surrounding tooling handles coordination, repository integration gates, and local model routing.', topic: 'Agents' },
+  { title: 'Websites and automation', text: 'I direct the creation and maintenance of websites and automation for small businesses. This journal is also a site I maintain.', topic: 'Practice' },
+  { title: 'Self-hosted infrastructure', text: 'Linux infrastructure, centralized logging, and offsite backups support my independent work. Operations are part of the project, alongside the application.', topic: 'Infrastructure' },
+  { title: 'Project risk and control', text: 'My consulting work includes cost, schedule, and scope tracking, risk registers, and decision logs, with AI-assisted analysis and reporting.', topic: 'Projects' },
+];
 ---
 
-<SwissLayout title="Lab — persio.fyi" description="Experiments will be published here once they can be reproduced.">
-  <div class="space-y-8">
-    <div>
-      <div class="flex items-baseline justify-between mb-2">
-        <h1 class="text-4xl md:text-5xl font-black tracking-tighter uppercase">
-          01 // LAB
-        </h1>
-        <span class="font-mono-swiss text-xs text-neutral-500 uppercase">
-          [ 0 EXPERIMENTS ]
-        </span>
-      </div>
-      <div class="rule-heavy mb-6"></div>
-      <p class="text-sm max-w-2xl text-neutral-700 leading-relaxed">
-        Empty for now. Nothing goes here until it runs, is measured and can be reproduced by someone else.
-      </p>
+<SwissLayout title="Work & Lab — persio.fyi" description="An overview of Persio’s independent work on agent workflows, websites, infrastructure, and project controls.">
+  <div class="space-y-10">
+    <header class="space-y-5 max-w-3xl">
+      <h1 class="text-4xl md:text-5xl font-black tracking-tighter uppercase border-b-2 border-black pb-3">02 // Work & Lab</h1>
+      <p class="text-base leading-relaxed text-neutral-800">The areas I work in, in broad terms. Individual decisions, techniques, and things I learn go into the journal as the work develops.</p>
+    </header>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8">
+      {areas.map((area, index) => (
+        <section class="border-t-2 border-black pt-4 space-y-4">
+          <span class="font-mono-swiss text-xs text-neutral-600 uppercase">{String(index + 1).padStart(2, '0')} // {area.topic}</span>
+          <h2 class="text-2xl font-black tracking-tight uppercase">{area.title}</h2>
+          <p class="text-sm leading-relaxed text-neutral-800 max-w-lg">{area.text}</p>
+        </section>
+      ))}
     </div>
+    <a href="/writing/" class="inline-block font-mono-swiss text-xs font-bold uppercase underline underline-offset-4">Read the journal →</a>
   </div>
 </SwissLayout>
