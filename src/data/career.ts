@@ -39,16 +39,17 @@ export interface Certification {
   start: string;
   expires: string;
   logo?: string;
+  logoEdition?: string;
 }
 
 // Owner-provided Cisco certification tracking export, 12 October 2026.
 export const certifications: Certification[] = [
-  { name: 'CCIE Certification — Enterprise Infrastructure', abbreviation: 'CCIE-Enterprise Infrastructure', status: 'Active', start: '2008-09-19', expires: '2029-05-04' },
-  { name: 'Cisco Certified Specialist — Enterprise Core', abbreviation: 'CCS-ECore', status: 'Active', start: '2008-09-19', expires: '2029-05-04', logo: '/certifications/enterprise-core.png' },
+  { name: 'CCIE Certification — Enterprise Infrastructure', abbreviation: 'CCIE-Enterprise Infrastructure', status: 'Active', start: '2008-09-19', expires: '2029-05-04', logo: '/certifications/ccie-routing-switching-2009.jpg', logoEdition: 'Earlier Routing & Switching mark · 2009' },
+  { name: 'Cisco Certified Specialist — Enterprise Core', abbreviation: 'CCS-ECore', status: 'Active', start: '2008-09-19', expires: '2029-05-04', logo: '/certifications/enterprise-core.png', logoEdition: 'Current Enterprise Core mark' },
   { name: 'Cisco Lifecycle Services for Advanced Wireless LAN', abbreviation: 'CLCSAWL', status: 'Expired', start: '2008-10-07', expires: '2010-10-07' },
   { name: 'Cisco Advanced Wireless Field Specialist', abbreviation: 'CS-CAWLANFS', status: 'Expired', start: '2008-10-07', expires: '2016-09-19' },
   { name: 'Cisco Lifecycle Services Advanced Security', abbreviation: 'CLCSAS', status: 'Expired', start: '2008-07-30', expires: '2010-07-30' },
-  { name: 'CCSP', abbreviation: 'CCSP', status: 'Expired', start: '2008-07-30', expires: '2014-09-19' },
+  { name: 'CCSP', abbreviation: 'CCSP', status: 'Expired', start: '2008-07-30', expires: '2014-09-19', logo: '/certifications/ccsp-2009.jpg', logoEdition: 'Historic mark · 2009' },
   { name: 'Cisco Network Admission Control Specialist', abbreviation: 'CNACS', status: 'Expired', start: '2008-07-30', expires: '2016-09-19' },
   { name: 'Cisco Firewall Specialist', abbreviation: 'CS-CFWS', status: 'Expired', start: '2008-07-29', expires: '2010-09-19' },
   { name: 'Cisco Information Security Specialist', abbreviation: 'CS-CISecS', status: 'Expired', start: '2008-07-29', expires: '2010-09-19' },
@@ -56,8 +57,8 @@ export const certifications: Certification[] = [
   { name: 'Advanced Routing and Switching Field Engineer Representative', abbreviation: 'CH-ARASFER', status: 'Expired', start: '2008-04-22', expires: '2016-09-19' },
   { name: 'Cisco Routing and Switching Field Specialist', abbreviation: 'CS-CRSFS', status: 'Expired', start: '2008-04-22', expires: '2016-09-19' },
   { name: 'Cisco Lifecycle Services Advanced Routing and Switching', abbreviation: 'CLCSARS', status: 'Expired', start: '2008-04-02', expires: '2010-04-02' },
-  { name: 'CCIP (Cisco Certified Internetwork Professional)', abbreviation: 'CCIP', status: 'Expired', start: '2007-11-07', expires: '2015-08-10' },
+  { name: 'CCIP (Cisco Certified Internetwork Professional)', abbreviation: 'CCIP', status: 'Expired', start: '2007-11-07', expires: '2015-08-10', logo: '/certifications/ccip-2009.jpg', logoEdition: 'Historic mark · 2009' },
   { name: 'Cisco Content Networking Specialist', abbreviation: 'CS-CCNS', status: 'Expired', start: '2006-11-30', expires: '2008-11-30' },
-  { name: 'CCNP Routing and Switching', abbreviation: 'CCNP', status: 'Expired', start: '2001-12-19', expires: '2016-10-03' },
-  { name: 'CCNA Routing and Switching', abbreviation: 'CCNA-RS', status: 'Expired', start: '2001-09-19', expires: '2016-10-03' },
+  { name: 'CCNP Routing and Switching', abbreviation: 'CCNP', status: 'Expired', start: '2001-12-19', expires: '2016-10-03', logo: '/certifications/ccnp-2009.jpg', logoEdition: 'Historic mark · 2009' },
+  { name: 'CCNA Routing and Switching', abbreviation: 'CCNA-RS', status: 'Expired', start: '2001-09-19', expires: '2016-10-03', logo: '/certifications/ccna-2009.jpg', logoEdition: 'Historic mark · 2009' },
 ];

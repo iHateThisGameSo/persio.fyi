@@ -8,6 +8,9 @@
   --font-grotesk: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
   --klein-blue: #002fa7;
+  --motion-enter: 420ms;
+  --motion-feedback: 160ms;
+  --motion-ease: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 body {
@@ -56,9 +59,40 @@ nav a[aria-current="page"] { text-decoration: underline; text-underline-offset: 
 .certification-logo { width: 80px; height: 80px; object-fit: contain; filter: grayscale(1); }
 .timeline-entry { break-inside: avoid; }
 .certification-row { break-inside: avoid; }
+.timeline-copy, .certification-heading, .certification-row { overflow-wrap: anywhere; }
+
+.era-navigator { position: sticky; top: 0; z-index: 10; padding: 14px 0 0; background: #fff; }
+.era-caption { display: flex; justify-content: space-between; gap: 12px; font-size: 10px; text-transform: uppercase; padding-bottom: 12px; color: #525252; }
+.era-links { display: flex; gap: 4px; }
+.era-links a { flex: 1 1 0; min-width: 0; padding: 10px 4px; text-align: center; border: 1px solid transparent; transition: background-color var(--motion-feedback), color var(--motion-feedback); }
+.era-links a:hover { border-color: #000; }
+.era-links a[aria-current="location"] { background: #000; color: #fff; }
+.era-year { display: block; font-weight: 900; font-size: 20px; letter-spacing: -0.05em; line-height: 1.1; }
+.era-name { display: block; margin-top: 5px; font-family: var(--font-mono); font-size: 10px; text-transform: uppercase; }
+.era-track { height: 2px; margin-top: 12px; background: #e5e5e5; overflow: hidden; }
+.era-track span { display: block; height: 100%; background: #000; transform: scaleX(0); transform-origin: left; }
+.cv-timeline .timeline-entry { scroll-margin-top: var(--era-offset, 140px); }
+.timeline-entry.is-in-view .timeline-copy { animation: timeline-enter var(--motion-enter) var(--motion-ease) both; }
+@keyframes timeline-enter { from { transform: translateY(8px); } to { transform: translateY(0); } }
+
+@media (max-width: 639px) {
+  .era-name { display: none; }
+  .era-year { font-size: 16px; }
+  .era-caption { font-size: 9px; gap: 8px; }
+}
+
+@media (max-width: 379px) {
+  .era-links { gap: 2px; }
+  .era-links a { padding-inline: 2px; }
+  .era-year { font-size: 13px; }
+  .brand-logo { width: 48px; height: 48px; }
+  .certification-heading { flex-direction: column; gap: 12px; }
+}
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
+  .era-links a { transition: none; }
+  .timeline-entry.is-in-view .timeline-copy { animation: none; }
 }
 
 @media print {
@@ -70,5 +104,6 @@ nav a[aria-current="page"] { text-decoration: underline; text-underline-offset: 
   .timeline-entry, .certification-row { break-inside: avoid; }
   .cv-timeline { display: block; }
   .cv-timeline > li { margin-bottom: 16px; }
+  .timeline-copy { animation: none !important; transform: none !important; }
   a { color: #000; }
 }
