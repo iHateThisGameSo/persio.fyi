@@ -12,7 +12,7 @@ Run `pnpm test` and `pnpm build` before submitting changes. The homepage, journa
 
 ## Career record
 
-The timeline and credential records live in `src/data/career.ts`; the presentation lives in `src/pages/cv/index.astro`. Update the data rather than duplicating employment dates across pages. Keep full job history, education, and credential states accurate. A retired certification is historical, not active. A projected eligibility milestone is not a credential already awarded.
+The timeline and credential records live in `src/data/career.ts`; the presentation lives in `src/pages/cv/index.astro`. Update the data rather than duplicating employment dates across pages. Keep full job history, education, and credential source data accurate; the public presentation may select the credentials requested by the owner. A retired certification is historical, not active. A projected eligibility milestone is not a credential already awarded.
 
 ## Editorial baseline, 12 October 2026
 
@@ -27,3 +27,9 @@ Lifetime Emeritus eligibility is projected for 19 September 2028 from the CCIE r
 The owner selected navigation by eras with progress while scrolling. `TimelineNavigator.astro` provides six native anchor links, a sticky position indicator, and a decorative progress line spanning the first through last timeline entries. Scrolling updates the current era without moving keyboard focus. Links work without JavaScript. The JavaScript is confined to the CV and throttles scroll work through requestAnimationFrame.
 
 Motion preserves the existing monochrome layout and typography. Headings enter once with an 8px translation over 420ms; navigation feedback takes 160ms. Text is always visible. CSS centralizes durations and easing. Reduced-motion preferences disable the entrance and smooth scrolling. The navigator and animation are removed for print. Historical badge captions separate the artwork edition from credential dates; missing individual Specialist and Lifecycle marks remain text by the owner's decision.
+
+## Credential layout follow-up, 12 October 2026
+
+The owner selected CCNA, CCNP, CCSP, CCDP, CCIE, and ITIL v2 Foundations for public display. Other credential records remain in the source data. Timeline milestones use their individual verified graphics at 44px, smaller typography, and right alignment. Employment and education keep their original layout. Explanatory notices were removed from the public CV; status fields, projected eligibility and required image credits remain factual.
+
+CCDP and ITIL achievement dates remain unconfirmed after a bounded read-only search of the owner's 2013–2018 email archive: 26,377 indexed messages, ten candidate messages and five attachments inspected. An October 2014 owner CV lists ITIL Foundations without a version; an August 2015 CV lists ITIL v3 Foundations. Neither proves an issue date. The public title follows the owner's current explicit request for ITIL v2 Foundations. CCDP and ITIL therefore appear in an additional milestone list inside the timeline, separate from dated entries. They do not change the chronological scroll-progress endpoint. No archive messages, personal filenames or attachments are copied into this public repository.

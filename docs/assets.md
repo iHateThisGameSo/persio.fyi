@@ -20,7 +20,7 @@ Employer and school marks identify the organizations in the timeline. They are n
 
 ## Historical certification marks
 
-The Cisco artwork below is the edition released in January 2009. A first-hand [14 January 2009 post](https://cyber-fi.net/index.php/2009/01/14/die-neuen-cisco-certification-logos/) describes its availability in the certification tracking portal; a second [contemporary account](https://ccie20728.wordpress.com/category/cert-stuff/) corroborates that release. The author's migrated domain still hosts the original JPEGs. The graphics are not represented as the artwork issued in 2001 or 2008. The active Enterprise Infrastructure record uses an explicitly captioned earlier Routing & Switching mark.
+The Cisco artwork below is the edition released in January 2009. A first-hand [14 January 2009 post](https://cyber-fi.net/index.php/2009/01/14/die-neuen-cisco-certification-logos/) describes its availability in the certification tracking portal; a second [contemporary account](https://ccie20728.wordpress.com/category/cert-stuff/) corroborates that release. The author's migrated domain still hosts the original JPEGs. The graphics are not represented as the artwork issued in 2001 or 2008. The CCIE record uses the earlier Routing & Switching mark; its January 2009 edition is recorded here and linked from the CV image credits.
 
 | Local asset | Original source file | Edition |
 | --- | --- | --- |
@@ -34,6 +34,6 @@ The Cisco artwork below is the edition released in January 2009. A first-hand [1
 
 The ITIL photo is by Tijmen Stam (IIVQ), cropped by Saibo, under [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/). The source file is unchanged. CSS displays it in monochrome; credit and license are included on the CV. It is not the owner's personal pin or a date assertion about the owner's credential.
 
-The owner explicitly chose text-only presentation for Specialist and Lifecycle records without verified individual artwork. A 2019 generic Specialist mark does not establish a 2006–2008 edition. No replacement badge is fabricated or borrowed from another program. The current Enterprise Core badge remains attached only to that current active credential.
+The owner first chose text-only presentation for Specialist and Lifecycle records without verified individual artwork, then selected a smaller public credential subset; those other records remain in the source data. A 2019 generic Specialist mark does not establish a 2006–2008 edition. No replacement badge is fabricated or borrowed from another program. The current Enterprise Core badge remains in the source assets and data for that active credential, outside the selected public presentation.
 
 The Layer2 assignment currently uses Cisco’s mark because the assignment was to Cisco; it does not claim to be Layer2’s logo. The independent practice and English exchange have no invented organization logos.
