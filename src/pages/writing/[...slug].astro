@@ -1,9 +1,10 @@
 ---
 import SwissLayout from '../../layouts/SwissLayout.astro';
-import { getCollection } from 'astro:content';
+import { getPublishedWriting } from '../../lib/published-writing';
+import { formatDate, readingMinutes } from '../../lib/writing.mjs';
 
 export async function getStaticPaths() {
-  const posts = await getCollection('writing');
+  const posts = await getPublishedWriting();
   return posts.map((post) => ({
     params: { slug: post.slug },
     props: post,
@@ -14,29 +15,27 @@ const post = Astro.props;
 const { Content } = await post.render();
 ---
 
-<SwissLayout title={`${post.data.title} — persio.fyi`} description={post.data.description}>
+<SwissLayout title={`${post.data.title} — persio.fyi`} description={post.data.description} articleDate={post.data.date}>
   
   <div class="space-y-10 max-w-4xl">
     
     <!-- Article Header -->
     <div class="space-y-4">
-      <div class="flex items-center gap-4 font-mono-swiss text-xs text-neutral-600 uppercase border-b border-black pb-2">
-        <a href="/writing" class="hover:underline font-bold">← Back to Writing Index</a>
+      <div class="flex flex-wrap items-center gap-x-4 gap-y-2 font-mono-swiss text-xs text-neutral-600 uppercase border-b-2 border-black pb-3">
+        <a href="/writing/" class="hover:underline font-bold">← Journal</a>
         <span>&middot;</span>
-        <span>{post.data.date}</span>
+        <time datetime={post.data.date}>{formatDate(post.data.date)}</time>
         <span>&middot;</span>
         <span>{post.data.category}</span>
         <span>&middot;</span>
-        <span>{post.data.readingTime}</span>
+        <span>{post.data.kind === 'essay' ? `${readingMinutes(post.body)} min read` : 'Note'}</span>
       </div>
 
       <h1 class="text-3xl md:text-5xl font-black tracking-tight leading-tight uppercase">
         {post.data.title}
       </h1>
 
-      <p class="text-base md:text-lg text-neutral-700 leading-relaxed font-medium">
-        {post.data.description}
-      </p>
+      {post.data.kind === 'essay' && <p class="text-base md:text-lg text-neutral-700 leading-relaxed font-medium">{post.data.description}</p>}
 
       <div class="rule-heavy"></div>
     </div>
@@ -48,7 +47,7 @@ const { Content } = await post.render();
 
     <!-- Article Footer / Navigation -->
     <div class="pt-8 border-t-2 border-black flex justify-between font-mono-swiss text-xs uppercase font-bold">
-      <a href="/writing" class="hover:underline">← All Essays</a>
+      <a href="/writing/" class="hover:underline">← All entries</a>
       <a href="#top" class="hover:underline">Return to Top ↑</a>
     </div>
 

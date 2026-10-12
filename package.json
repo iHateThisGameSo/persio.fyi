@@ -8,6 +8,8 @@
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
+    "test": "node --test tests/*.test.mjs",
+    "test:build": "python3 scripts/check_build.py",
     "astro": "astro"
   },
   "dependencies": {
