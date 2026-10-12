@@ -15,9 +15,11 @@ Employer and school marks identify the organizations in the timeline. They are n
 | `logos/puc-sp.png` | [PUC-SP official logo page](https://www.pucsp.br/iniciacaocientifica/31encontro/logos) | Official institutional mark, historical edition not asserted |
 | `logos/impsat.png` | [Impsat archived mark](https://freebiesupply.com/logos/impsat-logo/) | Real archived mark; exact 1999 edition not established |
 | `certifications/enterprise-core.png` | [Cisco issuer badge](https://www.credly.com/org/cisco/badge/cisco-certified-specialist-enterprise-core) | Current Enterprise Core mark; not used for retired specialists |
+| `logos/mandic.jpg` | [Mandic Cloud Solutions corporate profile](https://soundcloud.com/mandiccloudsolutions) | Later corporate mark, used for organization identification |
+| `logos/telefonica.svg` | [Telefónica official brand page](https://www.telefonica.com/en/about-us/brands/) | Current official mark, used for organization identification |
 
 ## Pending original marks
 
 The owner requested period-appropriate logos for every certification. Historical CCNA, CCNP, CCIP, CCSP, CCIE, specialist, lifecycle, CCDP, and ITIL artwork has not yet been verified. Those records render without replacement graphics. Do not fabricate badges or reuse current Specialist artwork for older credentials. Original tracking-portal files or another verified archive can fill the remaining assets.
 
-Mandic and Telefônica Empresas employer marks are also pending. The Layer2 assignment currently uses Cisco’s mark because the assignment was to Cisco; it does not claim to be Layer2’s logo. The independent practice and English exchange have no invented organization logos.
+The Layer2 assignment currently uses Cisco’s mark because the assignment was to Cisco; it does not claim to be Layer2’s logo. The independent practice and English exchange have no invented organization logos.
