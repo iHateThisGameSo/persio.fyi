@@ -58,7 +58,7 @@ nav a[aria-current="page"] { text-decoration: underline; text-underline-offset: 
 .brand-logo { width: 64px; height: 64px; object-fit: contain; filter: grayscale(1); }
 .certification-logo { width: 44px; height: 44px; object-fit: contain; filter: grayscale(1); }
 .timeline-entry { break-inside: avoid; }
-.timeline-entry--certification { padding-bottom: 32px; }
+.timeline-entry--milestone { padding-bottom: 32px; }
 .certification-milestone { display: flex; align-items: center; justify-content: flex-end; gap: 20px; max-width: 620px; margin-left: auto; text-align: right; }
 .milestone-copy { min-width: 0; overflow-wrap: anywhere; }
 .milestone-badges { display: flex; gap: 8px; flex-shrink: 0; }
@@ -76,7 +76,7 @@ nav a[aria-current="page"] { text-decoration: underline; text-underline-offset: 
 .era-name { display: block; margin-top: 5px; font-family: var(--font-mono); font-size: 10px; text-transform: uppercase; }
 .era-track { height: 2px; margin-top: 12px; background: #e5e5e5; overflow: hidden; }
 .era-track span { display: block; height: 100%; background: #000; transform: scaleX(0); transform-origin: left; }
-.cv-timeline .timeline-entry, .additional-certification-milestone { scroll-margin-top: var(--era-offset, 140px); }
+.cv-timeline .timeline-entry { scroll-margin-top: var(--era-offset, 140px); }
 .timeline-entry.is-in-view .timeline-copy { animation: timeline-enter var(--motion-enter) var(--motion-ease) both; }
 @keyframes timeline-enter { from { transform: translateY(8px); } to { transform: translateY(0); } }
 

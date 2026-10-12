@@ -12,27 +12,24 @@ Employer and school marks identify the organizations in the timeline. They are n
 | `logos/multirede.jpg` | [Multirede](https://www.linkedin.com/company/40866/) logo shown on the owner's experience page | Current profile asset |
 | `logos/uol.jpg` | [UOL](https://www.linkedin.com/company/6668/) logo shown on the owner's experience page | Current profile asset |
 | `logos/mackenzie.jpg` | [Mackenzie](https://www.linkedin.com/school/16199/) logo shown on the owner's education page | Current profile asset |
+| `logos/chinle-wildcats.png` | [Arizona Interscholastic Association — Chinle High School](https://aiaonline.org/schools/208) | Current Wildcats mark from the school’s athletic-association listing |
 | `logos/puc-sp.png` | [PUC-SP official logo page](https://www.pucsp.br/iniciacaocientifica/31encontro/logos) | Official institutional mark, historical edition not asserted |
 | `logos/impsat.png` | [Impsat archived mark](https://freebiesupply.com/logos/impsat-logo/) | Real archived mark; exact 1999 edition not established |
 | `certifications/enterprise-core.png` | [Cisco issuer badge](https://www.credly.com/org/cisco/badge/cisco-certified-specialist-enterprise-core) | Current Enterprise Core mark; not used for retired specialists |
 | `logos/mandic.jpg` | [Mandic Cloud Solutions corporate profile](https://soundcloud.com/mandiccloudsolutions) | Later corporate mark, used for organization identification |
-| `logos/telefonica.svg` | [Telefónica official brand page](https://www.telefonica.com/en/about-us/brands/) | Current official mark, used for organization identification |
 
 ## Historical certification marks
 
-The Cisco artwork below is the edition released in January 2009. A first-hand [14 January 2009 post](https://cyber-fi.net/index.php/2009/01/14/die-neuen-cisco-certification-logos/) describes its availability in the certification tracking portal; a second [contemporary account](https://ccie20728.wordpress.com/category/cert-stuff/) corroborates that release. The author's migrated domain still hosts the original JPEGs. The graphics are not represented as the artwork issued in 2001 or 2008. The CCIE record uses the earlier Routing & Switching mark; its January 2009 edition is recorded here and linked from the CV image credits.
+The Cisco artwork below is the edition released in January 2009. A first-hand [14 January 2009 post](https://cyber-fi.net/index.php/2009/01/14/die-neuen-cisco-certification-logos/) describes its availability in the certification tracking portal; a second [contemporary account](https://ccie20728.wordpress.com/category/cert-stuff/) corroborates that release. The author's migrated domain still hosts the original JPEGs. The graphics are not represented as the artwork issued in 2001 or 2008. The CCIE record uses the earlier Routing & Switching mark; its January 2009 edition is recorded here.
 
 | Local asset | Original source file | Edition |
 | --- | --- | --- |
 | `certifications/ccna-2009.jpg` | [CCNA](https://cyber-fi.net/wp-content/uploads/2009/01/ccna_med.jpg) | January 2009 |
 | `certifications/ccnp-2009.jpg` | [CCNP](https://cyber-fi.net/wp-content/uploads/2009/01/ccnp_med.jpg) | January 2009 |
-| `certifications/ccdp-2009.jpg` | [CCDP Design](https://cyber-fi.net/wp-content/uploads/2009/01/ccdp_design_med.jpg) | January 2009 |
 | `certifications/ccip-2009.jpg` | [CCIP Service Provider](https://cyber-fi.net/wp-content/uploads/2009/01/ccip_servprov_med.jpg) | January 2009 |
 | `certifications/ccsp-2009.jpg` | [Cisco CCSP Security](https://cyber-fi.net/wp-content/uploads/2009/01/ccsp_security_med.jpg) | January 2009; not ISC2 CCSP |
 | `certifications/ccie-routing-switching-2009.jpg` | [CCIE Routing & Switching](https://cyber-fi.net/wp-content/uploads/2009/01/ccie_routeswitch_med.jpg) | January 2009; earlier track mark |
-| `certifications/itil-foundation-pin-2007.jpg` | [Wikimedia Commons Foundation pin photo](https://commons.wikimedia.org/wiki/File:ITIL_Foundation_Certificate_pin.jpg) | Crop dated 2 February 2007, from a 2006 photograph; archival illustration |
 
-The ITIL photo is by Tijmen Stam (IIVQ), cropped by Saibo, under [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/). The source file is unchanged. CSS displays it in monochrome; credit and license are included on the CV. It is not the owner's personal pin or a date assertion about the owner's credential.
 
 The owner first chose text-only presentation for Specialist and Lifecycle records without verified individual artwork, then selected a smaller public credential subset; those other records remain in the source data. A 2019 generic Specialist mark does not establish a 2006–2008 edition. No replacement badge is fabricated or borrowed from another program. The current Enterprise Core badge remains in the source assets and data for that active credential, outside the selected public presentation.
 

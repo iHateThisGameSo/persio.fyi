@@ -1,0 +1,17 @@
+/cv
+  Cache-Control: no-store
+  Cloudflare-CDN-Cache-Control: no-store
+  CDN-Cache-Control: no-store
+  X-Robots-Tag: noindex
+
+/cv/
+  Cache-Control: no-store
+  Cloudflare-CDN-Cache-Control: no-store
+  CDN-Cache-Control: no-store
+  X-Robots-Tag: noindex
+
+/cv/index.html
+  Cache-Control: no-store
+  Cloudflare-CDN-Cache-Control: no-store
+  CDN-Cache-Control: no-store
+  X-Robots-Tag: noindex

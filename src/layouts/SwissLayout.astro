@@ -5,12 +5,14 @@ interface Props {
   title?: string;
   description?: string;
   articleDate?: string;
+  noindex?: boolean;
 }
 
 const {
   title = "Persio's Technical Journal & System Lab",
   description = "Notes from Persio’s work on software, AI-assisted workflows, infrastructure, and projects.",
   articleDate,
+  noindex = false,
 } = Astro.props;
 
 // Social links. An entry with an empty url is not rendered.
@@ -35,6 +37,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://persio.f
   <title>{title}</title>
   <meta name="title" content={title} />
   <meta name="description" content={description} />
+  {noindex && <meta name="robots" content="noindex" />}
 
   <!-- Open Graph / Social -->
   <meta property="og:type" content={articleDate ? 'article' : 'website'} />
