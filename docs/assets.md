@@ -16,7 +16,6 @@ Employer and school marks identify the organizations in the timeline. They are n
 | `logos/impsat.png` | [Impsat archived mark](https://freebiesupply.com/logos/impsat-logo/) | Real archived mark; exact 1999 edition not established |
 | `certifications/enterprise-core.png` | [Cisco issuer badge](https://www.credly.com/org/cisco/badge/cisco-certified-specialist-enterprise-core) | Current Enterprise Core mark; not used for retired specialists |
 | `logos/mandic.jpg` | [Mandic Cloud Solutions corporate profile](https://soundcloud.com/mandiccloudsolutions) | Later corporate mark, used for organization identification |
-| `logos/telefonica.svg` | [Telefónica official brand page](https://www.telefonica.com/en/about-us/brands/) | Current official mark, used for organization identification |
 
 ## Historical certification marks
 
