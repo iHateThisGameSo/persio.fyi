@@ -12,7 +12,7 @@ export interface CareerEntry {
 
 // Dates come from the owner's October 2026 CV and direct biographical corrections.
 export const career: CareerEntry[] = [
-  { id: 'exchange', period: '1995–1996', kind: 'Education', organization: 'Chinle, Arizona', title: 'English exchange', description: 'An English-language exchange in Chinle, Arizona.' },
+  { id: 'exchange', period: '1995–1996', kind: 'Education', organization: 'Chinle High School', title: 'Senior Year · Chinle High School', description: 'Go Wildcats!', logo: '/logos/chinle-wildcats.png' },
   { id: 'puc', period: '1997', kind: 'Education', organization: 'PUC-SP', title: 'Computer Science · first year', description: 'Completed the first year of Computer Science at Pontifícia Universidade Católica de São Paulo.', logo: '/logos/puc-sp.png' },
   { id: 'mandic', period: 'Jul 1998–Sep 1999', kind: 'Work', organization: 'Mandic Internet', title: 'Technical Support Analyst', description: 'Technical support and dial-up access administration. My professional starting point at Mandic, an internet provider with roots in the BBS era.', logo: '/logos/mandic.jpg' },
   { id: 'mackenzie', period: '1999–2005', kind: 'Education', organization: 'Universidade Presbiteriana Mackenzie', title: 'Bachelor of Business Administration', description: 'Business Administration studies alongside the early years of my technical career.', logo: '/logos/mackenzie.jpg' },
@@ -31,12 +31,6 @@ export const career: CareerEntry[] = [
   { id: 'cisco-leader', period: 'Nov 2021–Feb 2024', kind: 'Work', organization: 'Cisco Systems', title: 'High Touch Engineer Technical Leader · Customer Experience', description: 'Technical leadership across critical incidents, customer projects, and network changes, coordinating engineers and teams around the resolution.', logo: '/logos/cisco.jpg' },
   { id: 'palo-alto', period: 'Nov 2024–Jul 2026', kind: 'Work', organization: 'Palo Alto Networks', title: 'Customer Success Engineer · contractor', description: 'Prisma Access SASE customer adoption, knowledge transfer, deployment, and ongoing use of security services, including CASB and Enterprise DLP.', logo: '/logos/palo-alto.jpg' },
   { id: 'independent', period: 'Aug 2026–present', kind: 'Work', organization: 'Independent practice', title: 'Developer and consultant', description: 'I define problems and direct AI agents through software delivery, while retaining priorities and acceptance judgment. The work spans websites, automation, agent tooling, self-hosted infrastructure, and consulting on project risk and control.' },
-];
-
-// The source CV names these credentials without achievement dates.
-export const additionalMilestones: CareerEntry[] = [
-  { id: 'ccdp', period: '', kind: 'Certification', organization: 'Cisco', title: 'CCDP · Design', description: '', badges: [{ name: 'CCDP Design', src: '/certifications/ccdp-2009.jpg' }] },
-  { id: 'itil', period: '', kind: 'Certification', organization: 'ITIL', title: 'ITIL v2 Foundations', description: '', badges: [{ name: 'ITIL Foundation', src: '/certifications/itil-foundation-pin-2007.jpg' }] },
 ];
 
 export interface Certification {

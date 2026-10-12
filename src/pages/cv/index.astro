@@ -1,21 +1,20 @@
 ---
 import SwissLayout from '../../layouts/SwissLayout.astro';
 import TimelineNavigator from '../../components/TimelineNavigator.astro';
-import { career, certifications, additionalMilestones } from '../../data/career';
+import { career, certifications } from '../../data/career';
 import { formatDate } from '../../lib/writing.mjs';
 const active = certifications.filter(cert => cert.status === 'Active' && cert.abbreviation.startsWith('CCIE'));
 const selectedHistorical = new Set(['CCNA-RS', 'CCNP', 'CCSP']);
 const historical = certifications.filter(cert => cert.status === 'Expired' && selectedHistorical.has(cert.abbreviation));
 ---
 
-<SwissLayout title="Trajectory & CV — persio.fyi" description="Persio’s trajectory from an English exchange and Mandic’s internet era to network engineering, technical leadership, and independent work.">
+<SwissLayout noindex title="Persio Pucci · Trajectory & CV — persio.fyi" description="Persio’s trajectory from an English exchange and Mandic’s internet era to network engineering, technical leadership, and independent work.">
   <div class="space-y-14">
     <header class="grid md:grid-cols-12 gap-6 md:gap-8">
       <div class="md:col-span-3 font-mono-swiss text-xs uppercase text-neutral-600 tracking-widest">03 // Trajectory / CV</div>
       <div class="md:col-span-9 space-y-6">
         <div class="flex flex-wrap items-baseline justify-between gap-4">
-          <h1 class="text-5xl md:text-7xl font-black tracking-tighter leading-none uppercase">Persio</h1>
-          <button id="print-cv" type="button" class="print-control border-2 border-black px-3 py-2 font-mono-swiss text-[11px] uppercase font-bold hover:bg-black hover:text-white">Print / save PDF</button>
+          <h1 class="text-5xl md:text-7xl font-black tracking-tighter leading-none uppercase">Persio Pucci</h1>
         </div>
         <p class="text-lg md:text-xl leading-relaxed max-w-3xl">Networks, operations, and the judgment that comes from troubleshooting them. Today I bring that experience to independent software work and project controls.</p>
         <p class="text-sm leading-relaxed text-neutral-700 max-w-2xl">I define the problem, direct AI agents through implementation, and assess the result. My background runs through internet access, backbone networks, managed services, technical leadership, and security.</p>
@@ -35,15 +34,16 @@ const historical = certifications.filter(cert => cert.status === 'Expired' && se
       <TimelineNavigator />
       <ol class="cv-timeline">
         {career.map(entry => (
-          <li id={entry.id} class:list={['timeline-entry', entry.kind === 'Certification' ? 'timeline-entry--certification' : 'grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-8 pb-8 last:pb-0']}>
-            {entry.kind === 'Certification' ? (
+          <li id={entry.id} class:list={['timeline-entry', entry.kind !== 'Work' ? 'timeline-entry--milestone' : 'grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-8 pb-8 last:pb-0']}>
+            {entry.kind !== 'Work' ? (
               <div class="certification-milestone">
                 <div class="milestone-copy space-y-2">
-                  <p class="font-mono-swiss text-[10px] uppercase text-neutral-600">{entry.period} · Certification</p>
+                  <p class="font-mono-swiss text-[10px] uppercase text-neutral-600">{entry.period} · {entry.kind}</p>
+                  {entry.kind === 'Education' && entry.id !== 'exchange' && <p class="text-xs text-neutral-600">{entry.organization}</p>}
                   <h3 class="text-sm font-semibold">{entry.title}</h3>
                   <p class="text-xs leading-relaxed text-neutral-600">{entry.description}</p>
                 </div>
-                {entry.badges && <div class="milestone-badges">{entry.badges.map(badge => <img src={badge.src} alt={badge.name} width="44" height="44" loading="lazy" class="milestone-badge" />)}</div>}
+                {entry.badges ? <div class="milestone-badges">{entry.badges.map(badge => <img src={badge.src} alt={badge.name} width="44" height="44" loading="lazy" class="milestone-badge" />)}</div> : entry.logo && <img src={entry.logo} alt="" width="44" height="44" loading="lazy" class="milestone-badge shrink-0" />}
               </div>
             ) : (<>
 
@@ -65,16 +65,6 @@ const historical = certifications.filter(cert => cert.status === 'Expired' && se
           </li>
         ))}
       </ol>
-      <ul class="space-y-6" aria-label="Additional certification milestones">
-        {additionalMilestones.map(entry => (
-          <li id={entry.id} class="additional-certification-milestone">
-            <div class="certification-milestone">
-              <div class="milestone-copy space-y-2"><p class="font-mono-swiss text-[10px] uppercase text-neutral-600">Certification</p><h3 class="text-sm font-semibold">{entry.title}</h3></div>
-              <div class="milestone-badges">{entry.badges?.map(badge => <img src={badge.src} alt={badge.name} width="44" height="44" loading="lazy" class="milestone-badge" />)}</div>
-            </div>
-          </li>
-        ))}
-      </ul>
     </section>
 
     <section id="certifications" class="space-y-8" aria-labelledby="certifications-title">
@@ -122,13 +112,6 @@ const historical = certifications.filter(cert => cert.status === 'Expired' && se
             </article>
           ))}
         </div>
-        <details class="text-xs leading-relaxed text-neutral-600">
-          <summary class="cursor-pointer underline underline-offset-4">Image credits</summary>
-          <div class="pt-3 space-y-2 max-w-3xl">
-            <p>Cisco artwork: <a href="https://cyber-fi.net/index.php/2009/01/14/die-neuen-cisco-certification-logos/" class="underline">2009 archive</a>.</p>
-            <p>ITIL photo: <a href="https://commons.wikimedia.org/wiki/File:ITIL_Foundation_Certificate_pin.jpg" class="underline">Tijmen Stam (IIVQ), crop by Saibo</a>, <a href="https://creativecommons.org/licenses/by-sa/3.0/" class="underline">CC BY-SA 3.0</a>. Displayed in monochrome.</p>
-          </div>
-        </details>
       </div>
     </section>
 
@@ -138,7 +121,3 @@ const historical = certifications.filter(cert => cert.status === 'Expired' && se
     </section>
   </div>
 </SwissLayout>
-
-<script>
-  document.getElementById('print-cv')?.addEventListener('click', () => window.print());
-</script>
